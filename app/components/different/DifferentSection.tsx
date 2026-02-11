@@ -85,7 +85,7 @@ export default function DifferentSection() {
           </div>
 
           {/* Right Column - Feature Card */}
-          <div className="relative bg-white rounded-3xl p-8 md:p-12 shadow-lg">
+          <div className="relative bg-[#DBE3E5] rounded-3xl p-8 md:p-12 ">
             {/* Feature Content */}
             <h3
               className="text-2xl md:text-3xl font-semibold text-[#001517] mb-3"
@@ -129,7 +129,7 @@ export default function DifferentSection() {
               {/* Next Arrow */}
               <button
                 onClick={nextSlide}
-                className="w-10 h-10 rounded-full border-2 border-[#001517] flex items-center justify-center hover:bg-[#001517] hover:text-white transition-colors"
+                className="w-10 h-10 rounded-full border-2 border-[#001517] text-black flex items-center justify-center hover:bg-[#001517] hover:text-white transition-colors"
                 aria-label="Next slide"
               >
                 <svg

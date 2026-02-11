@@ -3,6 +3,7 @@ import { MissionSection } from "./components/mission";
 import { AcceleratorSection } from "./components/accelerator";
 import { FeaturesSection } from "./components/features";
 import { DifferentSection } from "./components/different";
+import { ValuesSection } from "./components/values";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <AcceleratorSection />
       <FeaturesSection />
       <DifferentSection />
+      <ValuesSection />
     </main>
   );
 }
