@@ -1,6 +1,37 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 export default function PricingSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [isVisible]);
+
   return (
     <section
+      ref={sectionRef}
       className="relative w-full min-h-screen flex items-center justify-center py-20 overflow-hidden"
       style={{ backgroundColor: "#DBE3E5" }}
     >
@@ -20,7 +51,9 @@ export default function PricingSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Main Heading */}
         <h2
-          className="text-4xl md:text-5xl lg:text-6xl text-[#143039] text-center mb-16 leading-tight"
+          className={`text-4xl md:text-5xl lg:text-6xl text-[#143039] text-center mb-16 leading-tight transition-all duration-1000 ease-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
           style={{ fontFamily: "var(--font-caudex)" }}
         >
           Choose The Right Plan
@@ -32,11 +65,16 @@ export default function PricingSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {/* Monthly Plan Card */}
           <div
-            className="p-8 flex flex-col"
+            className={`p-8 flex flex-col transition-all duration-1000 ease-out hover:scale-105 hover:shadow-2xl ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
             style={{
               borderRadius: "16px",
               background: "linear-gradient(180deg, #005A65 0%, #001417 100%)",
               boxShadow: "0 8px 80px 0 rgba(167, 167, 167, 0.24)",
+              transitionDelay: isVisible ? "200ms" : "0ms",
             }}
           >
             <div className="mb-6">
@@ -180,11 +218,16 @@ export default function PricingSection() {
 
           {/* Yearly Plan Card */}
           <div
-            className="p-8 flex flex-col"
+            className={`p-8 flex flex-col transition-all duration-1000 ease-out hover:scale-105 hover:shadow-2xl ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
             style={{
               borderRadius: "16px",
               background: "linear-gradient(180deg, #005A65 0%, #001417 100%)",
               boxShadow: "0 8px 80px 0 rgba(167, 167, 167, 0.24)",
+              transitionDelay: isVisible ? "400ms" : "0ms",
             }}
           >
             <div className="mb-6">
@@ -327,7 +370,14 @@ export default function PricingSection() {
           </div>
 
           {/* Image Card */}
-          <div className="rounded-3xl overflow-hidden bg-white h-full min-h-[500px]">
+          <div
+            className={`rounded-3xl overflow-hidden bg-white h-full min-h-[500px] transition-all duration-1000 ease-out hover:scale-105 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+            style={{ transitionDelay: isVisible ? "600ms" : "0ms" }}
+          >
             <img
               src="/mother-little-daughter-using-tablet-couch 1.svg"
               alt="Mother and daughter using tablet"

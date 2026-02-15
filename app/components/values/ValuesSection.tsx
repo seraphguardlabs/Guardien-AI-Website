@@ -1,4 +1,11 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 export default function ValuesSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
   const values = [
     {
       title: "Integrity",
@@ -47,12 +54,43 @@ export default function ValuesSection() {
     },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [isVisible]);
+
   return (
-    <section className="py-16 md:py-24" style={{ background: "#002227" }}>
+    <section
+      ref={sectionRef}
+      className="py-16 md:py-24"
+      style={{ background: "#002227" }}
+    >
       <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-16">
         {/* Section Title */}
         <h2
-          className="text-4xl md:text-5xl text-white text-center mb-16 md:mb-20"
+          className={`text-4xl md:text-5xl text-white text-center mb-16 md:mb-20 transition-all duration-1000 ease-out ${
+            isVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-10"
+          }`}
           style={{ fontFamily: "var(--font-caudex)" }}
         >
           Our values
@@ -63,16 +101,23 @@ export default function ValuesSection() {
           {values.map((value, index) => (
             <div
               key={index}
-              className={`space-y-4 ${index % 2 === 1 ? "md:pl-16" : ""}`}
+              className={`space-y-4 group cursor-default transition-all duration-1000 ease-out ${
+                index % 2 === 1 ? "md:pl-16" : ""
+              } ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+              style={{ transitionDelay: `${200 + index * 150}ms` }}
             >
               <h3
-                className="text-2xl md:text-3xl text-white font-light"
+                className="text-2xl md:text-3xl text-white font-light group-hover:text-[#93D4FF] transition-colors duration-300"
                 style={{ fontFamily: "var(--font-caudex)" }}
               >
                 {value.title}
               </h3>
               <p
-                className="text-sm md:text-base text-white/70 leading-relaxed"
+                className="text-sm md:text-base text-white/70 leading-relaxed group-hover:text-white/90 transition-colors duration-300"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
                 {value.description}

@@ -1,15 +1,47 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 export default function PartnerSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [isVisible]);
+
   return (
-    <section 
-      className="py-20 md:py-32" 
-      style={{ 
+    <section
+      ref={sectionRef}
+      className="py-20 md:py-32"
+      style={{
         background: "#002227",
-        backgroundImage: "url('/green-aurora-with-aurora-borealis-visible-background 1.svg')",
+        backgroundImage:
+          "url('/green-aurora-with-aurora-borealis-visible-background 1.svg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundRepeat: "no-repeat"
+        backgroundRepeat: "no-repeat",
       }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
@@ -18,7 +50,11 @@ export default function PartnerSection() {
           <div className="space-y-6">
             {/* Main Heading */}
             <h2
-              className="text-3xl md:text-4xl lg:text-5xl text-white leading-tight"
+              className={`text-3xl md:text-4xl lg:text-5xl text-white leading-tight transition-all duration-1000 ease-out ${
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-20"
+              }`}
               style={{ fontFamily: "var(--font-caudex)" }}
             >
               Every Threat, One Shield
@@ -26,15 +62,25 @@ export default function PartnerSection() {
 
             {/* Subheading */}
             <p
-              className="text-xl md:text-2xl text-white font-light"
+              className={`text-xl md:text-2xl text-white font-light transition-all duration-1000 delay-200 ease-out ${
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-20"
+              }`}
               style={{ fontFamily: "var(--font-poppins)" }}
             >
-              A trusted partner for parents - protecting children while
+              A trusted partner for parents -
+              <br />
+              protecting children while
             </p>
 
             {/* Body Text */}
             <div
-              className="text-sm md:text-base text-white/80 leading-relaxed space-y-4"
+              className={`text-sm md:text-base text-white/80 leading-relaxed space-y-4 transition-all duration-1000 delay-400 ease-out ${
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-20"
+              }`}
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               <p>
@@ -54,10 +100,17 @@ export default function PartnerSection() {
             </div>
 
             {/* Read More Link */}
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 text-white hover:text-white/80 transition-colors group"
-              style={{ fontFamily: "var(--font-poppins)" }}
+            <Link
+              href="/partner-details"
+              className={`inline-flex items-center gap-2 text-orange-500 hover:text-orange-600 hover:gap-3 transition-all duration-300 group ${
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-20"
+              }`}
+              style={{
+                fontFamily: "var(--font-poppins)",
+                transitionDelay: isVisible ? "600ms" : "0ms",
+              }}
             >
               <span className="text-base">Read more</span>
               <svg
@@ -73,16 +126,22 @@ export default function PartnerSection() {
                   d="M9 5l7 7-7 7"
                 />
               </svg>
-            </a>
+            </Link>
           </div>
 
           {/* Right Side - Image */}
-          <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px]">
+          <div
+            className={`relative w-full h-[500px] md:h-[600px] lg:h-[700px] transition-all duration-1000 delay-300 ease-out ${
+              isVisible
+                ? "opacity-100 translate-x-0 scale-100"
+                : "opacity-0 translate-x-20 scale-95"
+            }`}
+          >
             <Image
               src="/Group 1000002418.png"
               alt="Team collaboration"
               fill
-              className="object-contain"
+              className="object-contain hover:scale-105 transition-transform duration-700"
             />
           </div>
         </div>

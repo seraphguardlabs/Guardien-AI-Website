@@ -1,8 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function DifferentSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   const features = [
     {
@@ -52,6 +54,29 @@ export default function DifferentSection() {
     },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [isVisible]);
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % features.length);
   };
@@ -61,11 +86,19 @@ export default function DifferentSection() {
   };
 
   return (
-    <section className="w-full py-18" style={{ backgroundColor: "#DBE3E5" }}>
+    <section
+      ref={sectionRef}
+      className="w-full py-18"
+      style={{ backgroundColor: "#DBE3E5" }}
+    >
       <div className="max-w-7xl mx-auto px-6">
         {/* Main Heading */}
         <h2
-          className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#001517] mb-16"
+          className={`text-3xl md:text-4xl lg:text-5xl font-bold text-[#001517] mb-16 transition-all duration-1000 ease-out ${
+            isVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-10"
+          }`}
           style={{ fontFamily: "var(--font-caudex)" }}
         >
           Built Differently, Because Your Family
@@ -76,33 +109,49 @@ export default function DifferentSection() {
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Image */}
-          <div className="overflow-hidden rounded-2xl bg-[#DBE3E5] h-[320px] md:h-[350px]">
+          <div
+            className={`overflow-hidden rounded-2xl bg-[#DBE3E5] h-[320px] md:h-[350px] transition-all duration-1000 delay-200 ease-out ${
+              isVisible
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-20"
+            }`}
+          >
             <img
+              key={currentSlide}
               src={features[currentSlide].image}
               alt={features[currentSlide].title}
-              className="w-full h-full object-contain transition-opacity duration-500"
+              className="w-full h-full object-contain transition-all duration-700 ease-in-out animate-fadeIn"
             />
           </div>
 
           {/* Right Column - Feature Card */}
-          <div className="relative bg-[#DBE3E5] rounded-3xl p-8 md:p-12 ">
+          <div
+            className={`relative bg-[#DBE3E5] rounded-3xl p-8 md:p-12 transition-all duration-1000 delay-400 ease-out ${
+              isVisible
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-20"
+            }`}
+          >
             {/* Feature Content */}
             <h3
-              className="text-2xl md:text-3xl font-semibold text-[#001517] mb-3"
+              key={`title-${currentSlide}`}
+              className="text-2xl md:text-3xl font-semibold text-[#001517] mb-3 transition-all duration-500 animate-fadeIn"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               {features[currentSlide].title}
             </h3>
 
             <p
-              className="text-lg font-medium text-[#001517] mb-4"
+              key={`subtitle-${currentSlide}`}
+              className="text-lg font-medium text-[#001517] mb-4 transition-all duration-500 delay-100 animate-fadeIn"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               {features[currentSlide].subtitle}
             </p>
 
             <p
-              className="text-base text-[#001517]/70 leading-relaxed mb-8"
+              key={`description-${currentSlide}`}
+              className="text-base text-[#001517]/70 leading-relaxed mb-8 transition-all duration-500 delay-200 animate-fadeIn"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               {features[currentSlide].description}
@@ -116,10 +165,10 @@ export default function DifferentSection() {
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
-                    className={`h-2 rounded-full transition-all ${
+                    className={`h-2 rounded-full transition-all duration-300 hover:scale-125 ${
                       currentSlide === index
                         ? "w-8 bg-[#005C67]"
-                        : "w-2 bg-[#001517]/30"
+                        : "w-2 bg-[#001517]/30 hover:bg-[#001517]/50"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
@@ -129,7 +178,7 @@ export default function DifferentSection() {
               {/* Next Arrow */}
               <button
                 onClick={nextSlide}
-                className="w-10 h-10 rounded-full border-2 border-[#001517] text-black flex items-center justify-center hover:bg-[#001517] hover:text-white transition-colors"
+                className="w-10 h-10 rounded-full border-2 border-[#001517] text-black flex items-center justify-center hover:bg-[#001517] hover:text-white hover:scale-110 hover:shadow-lg transition-all duration-300"
                 aria-label="Next slide"
               >
                 <svg
@@ -141,6 +190,7 @@ export default function DifferentSection() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  className="transform group-hover:translate-x-0.5 transition-transform"
                 >
                   <polyline points="9 18 15 12 9 6" />
                 </svg>
