@@ -4,6 +4,9 @@ import { AcceleratorSection } from "./components/accelerator";
 import { FeaturesSection } from "./components/features";
 import { DifferentSection } from "./components/different";
 import { ValuesSection } from "./components/values";
+import { PartnerSection } from "./components/partner";
+import { ResearchSection } from "./components/research";
+import { ExpertsSection } from "./components/experts";
 import { PricingSection } from "./components/pricing";
 import { ContactSection } from "./components/contact";
 import { Footer } from "./components/footer";
@@ -17,6 +20,9 @@ export default function Home() {
       <FeaturesSection />
       <DifferentSection />
       <ValuesSection />
+      <PartnerSection />
+      <ResearchSection />
+      <ExpertsSection />
       <PricingSection />
       <ContactSection />
       <Footer />
