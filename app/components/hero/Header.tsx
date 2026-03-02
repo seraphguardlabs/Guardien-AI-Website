@@ -20,28 +20,28 @@ export default function Header() {
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-14 font-light">
           <Link
-            href="#mission"
+            href="/#mission"
             className="text-white/90 hover:text-white hover:scale-110 transition-all duration-300 ease-out relative group"
           >
             Mission
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link
-            href="#pricing"
+            href="/#pricing"
             className="text-white/90 hover:text-white hover:scale-110 transition-all duration-300 ease-out relative group"
           >
             Pricing
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link
-            href="#research"
+            href="/research"
             className="text-white/90 hover:text-white hover:scale-110 transition-all duration-300 ease-out relative group"
           >
             Research
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link
-            href="#contact"
+            href="/#contact"
             className="px-6 py-2 bg-white text-[#142E39] rounded-2xl hover:bg-white/90 hover:scale-105 hover:shadow-lg transition-all duration-300 ease-out font-medium"
           >
             Contact Us

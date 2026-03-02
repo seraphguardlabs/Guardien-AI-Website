@@ -38,7 +38,7 @@ export default function PartnerDetailsPage() {
               Pricing
             </Link>
             <Link
-              href="/#research"
+              href="/research"
               className="text-white/90 hover:text-white transition-colors"
             >
               Research
