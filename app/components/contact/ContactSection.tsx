@@ -52,6 +52,7 @@ export default function ContactSection() {
   return (
     <section
       ref={sectionRef}
+      id="contact"
       className="relative w-full py-20 overflow-hidden"
       style={{ backgroundColor: "#002D34" }}
     >

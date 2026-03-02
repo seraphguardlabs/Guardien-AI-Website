@@ -72,6 +72,7 @@ export default function ResearchSection() {
   return (
     <section
       ref={sectionRef}
+      id="research"
       className="relative py-20 md:py-32 bg-[#DBE3E5] overflow-hidden"
     >
       {/* Decorative Image at Top Right - Diagonal */}

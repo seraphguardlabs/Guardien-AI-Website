@@ -32,6 +32,7 @@ export default function PricingSection() {
   return (
     <section
       ref={sectionRef}
+      id="pricing"
       className="relative w-full min-h-screen flex items-center justify-center py-20 overflow-hidden"
       style={{ backgroundColor: "#DBE3E5" }}
     >

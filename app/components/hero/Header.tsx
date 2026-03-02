@@ -3,19 +3,19 @@ import Link from "next/link";
 export default function Header() {
   return (
     <header
-      className="absolute top-0 left-0 right-0 z-50 py-4"
+      className="fixed top-0 left-0 right-0 z-50 py-4"
       style={{ backgroundColor: "rgba(0, 21, 23, 0.50)" }}
     >
-      <nav className="flex items-center justify-between max-w-7xl mx-auto">
+      <nav className="flex items-center justify-between max-w-7xl mx-auto px-6 lg:px-8">
         {/* Logo */}
-        <div className="flex flex-col">
+        <Link href="/#" className="flex flex-col cursor-pointer">
           <img
             src="/Vector.svg"
             alt="Guardian AI Parental Control"
             width={180}
             height={40}
           />
-        </div>
+        </Link>
 
         {/* Navigation Links */}
         <div className="hidden md:flex items-center gap-14 font-light">
