@@ -69,7 +69,7 @@ export default function HeroContent() {
     <div className="relative z-10 w-full">
       <div className="max-w-7xl mx-auto flex items-center min-h-screen">
         <div
-          className={`max-w-2xl py-20 transition-all duration-1000 ease-out ${
+          className={`max-w-2xl py-20 transition-all duration-1000 ease-out flex flex-col items-center text-center md:items-start md:text-left ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
@@ -127,30 +127,41 @@ export default function HeroContent() {
                 : "opacity-0 translate-y-10"
             }`}
           >
-            A trusted partner for parents - protecting <br />
+            A trusted partner for parents - protecting{" "}
+            <br className="hidden md:block" />
             children while respecting privacy.
           </p>
 
           {/* CTA Buttons */}
           <div
-            className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-700 ease-out ${
+            className={`flex flex-col sm:flex-row gap-4 w-full sm:w-auto transition-all duration-1000 delay-700 ease-out ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <Link
-              href="#early-access"
-              className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white rounded-2xl  transition-colors text-center"
+            {/* CTA Buttons */}
+            <div
+              className={`flex flex-col sm:flex-row gap-4 items-center justify-center md:items-start md:justify-start transition-all duration-1000 delay-700 ease-out ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
             >
-              Request Early Access
-            </Link>
-            <Link
-              href="#demo"
-              className="px-16 py-4 bg-[white] hover:bg-white/50 text-[#222] rounded-2xl  backdrop-blur-sm border border-white/50 transition-colors text-center"
-            >
-              Watch Demo
-            </Link>
+              <Link
+                href="#early-access"
+                className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white rounded-2xl transition-colors text-center self-center sm:self-auto"
+              >
+                Request Early Access
+              </Link>
+
+              <Link
+                href="#demo"
+                className="px-6 py-4 bg-white hover:bg-white/50 text-[#222] rounded-2xl backdrop-blur-sm border border-white/50 transition-colors text-center self-center sm:self-auto"
+              >
+                Watch Demo
+              </Link>
+            </div>
           </div>
         </div>
       </div>

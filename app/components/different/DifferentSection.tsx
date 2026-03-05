@@ -89,7 +89,7 @@ export default function DifferentSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full py-18"
+      className="w-full py-18 overflow-hidden"
       style={{ backgroundColor: "#DBE3E5" }}
     >
       <div className="max-w-7xl mx-auto px-6">
