@@ -38,7 +38,7 @@ export default function PartnerSection() {
       style={{
         background: "#002227",
         backgroundImage:
-          "url('/green-aurora-with-aurora-borealis-visible-background 1.svg')",
+          "url('/green-aurora-with-aurora-borealis-visible-background 1.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -138,7 +138,7 @@ export default function PartnerSection() {
             }`}
           >
             <Image
-              src="/Group 1000002418.png"
+              src="/Group 1000002418.webp"
               alt="Team collaboration"
               fill
               className="object-contain hover:scale-105 transition-transform duration-700"

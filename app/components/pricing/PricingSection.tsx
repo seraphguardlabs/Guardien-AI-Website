@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export default function PricingSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -41,10 +42,14 @@ export default function PricingSection() {
         className="absolute z-0 opacity-500"
         style={{ top: "-20%", left: 0, right: 0, bottom: 0 }}
       >
-        <img
-          src="/image 3280.svg"
+        <Image
+          src="/image 3280.webp"
           alt="Background pattern"
-          className="w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          loading="lazy"
+          quality={60}
         />
       </div>
 
@@ -372,17 +377,20 @@ export default function PricingSection() {
 
           {/* Image Card */}
           <div
-            className={`rounded-3xl overflow-hidden bg-white h-full min-h-[500px] transition-all duration-1000 ease-out hover:scale-105 ${
+            className={`rounded-3xl overflow-hidden bg-white h-full min-h-[500px] relative transition-all duration-1000 ease-out hover:scale-105 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
             }`}
             style={{ transitionDelay: isVisible ? "600ms" : "0ms" }}
           >
-            <img
-              src="/mother-little-daughter-using-tablet-couch 1.svg"
+            <Image
+              src="/mother-little-daughter-using-tablet-couch 1.webp"
               alt="Mother and daughter using tablet"
-              className="w-full h-full object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover"
+              loading="lazy"
             />
           </div>
         </div>

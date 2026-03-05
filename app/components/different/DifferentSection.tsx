@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function DifferentSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -9,7 +10,7 @@ export default function DifferentSection() {
   const features = [
     {
       image:
-        "/cheerful-mother-daughter-are-resting-home-listening-music-headphones-concept-happy-family-friendly-relations 1.svg",
+        "/cheerful-mother-daughter-are-resting-home-listening-music-headphones-concept-happy-family-friendly-relations 1.webp",
       title: "Privacy-First Protection",
       subtitle: "On-device AI. End-to-end encryption.",
       description:
@@ -17,28 +18,28 @@ export default function DifferentSection() {
     },
     {
       image:
-        "/happy-female-friends-sitting-sofa-using-digital-tablet-mobile-phone 1.svg",
+        "/happy-female-friends-sitting-sofa-using-digital-tablet-mobile-phone 1.webp",
       title: "Modernize For Your Family",
       subtitle: "Adapting to every lifestyle.",
       description:
         "Flexible controls that work with your family's unique needs and values while maintaining safety",
     },
     {
-      image: "/two-young-sisters-use-smartphone 1.svg",
+      image: "/two-young-sisters-use-smartphone 1.webp",
       title: "Building Better Humans",
       subtitle: "Nurturing digital citizens.",
       description:
         "Teaching healthy online habits and critical thinking skills for the digital age",
     },
     {
-      image: "/cheerful-excited-young-men-discussing-smartphone-apps 1.svg",
+      image: "/cheerful-excited-young-men-discussing-smartphone-apps 1.webp",
       title: "Redefining Big Tech's Grip",
       subtitle: "Taking back control.",
       description:
         "Breaking free from data harvesting and giving families power over their digital lives",
     },
     {
-      image: "/mother-daughter-using-mobile-living-room 1.svg",
+      image: "/mother-daughter-using-mobile-living-room 1.webp",
       title: "Reassuring Big Hearts",
       subtitle: "Peace of mind for parents.",
       description:
@@ -46,7 +47,7 @@ export default function DifferentSection() {
     },
     {
       image:
-        "/two-beautiful-young-woman-friends-using-digital-tablet-home (1) 3.svg",
+        "/two-beautiful-young-woman-friends-using-digital-tablet-home (1) 3.webp",
       title: "Responsibility Rewarded",
       subtitle: "Encouraging independence.",
       description:
@@ -110,17 +111,20 @@ export default function DifferentSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Image */}
           <div
-            className={`overflow-hidden rounded-2xl bg-[#DBE3E5] h-[320px] md:h-[350px] transition-all duration-1000 delay-200 ease-out ${
+            className={`overflow-hidden rounded-2xl bg-[#DBE3E5] h-[320px] md:h-[350px] relative transition-all duration-1000 delay-200 ease-out ${
               isVisible
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 -translate-x-20"
             }`}
           >
-            <img
+            <Image
               key={currentSlide}
               src={features[currentSlide].image}
               alt={features[currentSlide].title}
-              className="w-full h-full object-contain transition-all duration-700 ease-in-out animate-fadeIn"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-contain transition-all duration-700 ease-in-out animate-fadeIn"
+              loading="lazy"
             />
           </div>
 

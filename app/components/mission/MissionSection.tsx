@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export default function MissionSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -38,10 +39,14 @@ export default function MissionSection() {
     >
       {/* Background SVG Pattern */}
       <div className="absolute inset-0 z-0 opacity-500">
-        <img
-          src="/image 3280.svg"
+        <Image
+          src="/image 3280.webp"
           alt="Background pattern"
-          className="w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          loading="lazy"
+          quality={60}
         />
       </div>
 

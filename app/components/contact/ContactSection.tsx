@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export default function ContactSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -58,10 +59,14 @@ export default function ContactSection() {
     >
       {/* Background SVG Pattern */}
       <div className="absolute inset-0 z-0 opacity-50">
-        <img
-          src="/green-aurora-with-aurora-borealis-visible-background 1.svg"
+        <Image
+          src="/green-aurora-with-aurora-borealis-visible-background 1.webp"
           alt="Background pattern"
-          className="w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          loading="lazy"
+          quality={60}
         />
       </div>
 

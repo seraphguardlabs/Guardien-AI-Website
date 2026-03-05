@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export default function FeaturesSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,27 +11,27 @@ export default function FeaturesSection() {
 
   const rightFeatures = [
     {
-      image: "/father-son-looking-smartphone-home 1.svg",
+      image: "/father-son-looking-smartphone-home 1.webp",
       title: "AI-Powered Risk Detection",
       description: "Detects cyberbullying, paedophilic threats...",
     },
     {
-      image: "/medium-shot-arab-women-with-smartphone 3.svg",
+      image: "/medium-shot-arab-women-with-smartphone 3.webp",
       title: "Screen Time & Usage Control",
       description: "Set healthy limits by app, schedule internet...",
     },
     {
-      image: "/smiling-lady-using-tablet-smartphone-outdoor-cafe 1.svg",
+      image: "/smiling-lady-using-tablet-smartphone-outdoor-cafe 1.webp",
       title: "Location & Safety Shield",
       description: "Track their location in real time, get alerts...",
     },
     {
-      image: "/father-son-looking-smartphone-home 1.svg",
+      image: "/father-son-looking-smartphone-home 1.webp",
       title: "Exam Mode-Distraction-Free",
       description: "Locks everything except study apps during...",
     },
     {
-      image: "/medium-shot-arab-women-with-smartphone 3.svg",
+      image: "/medium-shot-arab-women-with-smartphone 3.webp",
       title: "Gamified Responsibility",
       description: "Kids earn screen time by completing chores...",
     },
@@ -109,12 +110,16 @@ export default function FeaturesSection() {
         }
       `
       }} />
-      {/* Background Aurora SVG */}
+      {/* Background Aurora */}
       <div className="absolute inset-0 z-0 opacity-20">
-        <img
-          src="/green-aurora-with-aurora-borealis-visible-background 1.svg"
+        <Image
+          src="/green-aurora-with-aurora-borealis-visible-background 1.webp"
           alt="Aurora background"
-          className="w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          loading="lazy"
+          quality={60}
         />
       </div>
 
@@ -141,10 +146,13 @@ export default function FeaturesSection() {
                 isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
               }`}
             >
-              <img
-                src="/medium-shot-women-spending-quality-time-outdoors 1.svg"
+              <Image
+                src="/medium-shot-women-spending-quality-time-outdoors 1.webp"
                 alt="Women looking at smartphone"
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover hover:scale-110 transition-transform duration-700"
+                loading="lazy"
               />
             </div>
 
@@ -194,11 +202,14 @@ export default function FeaturesSection() {
                   style={{ transitionDelay: `${200 + index * 200}ms` }}
                 >
                   {/* Small Image */}
-                  <div className="flex-shrink-0 overflow-hidden rounded-2xl w-40 h-40 transform group-hover:scale-105 group-hover:shadow-2xl transition-all duration-500">
-                    <img
+                  <div className="flex-shrink-0 overflow-hidden rounded-2xl w-40 h-40 relative transform group-hover:scale-105 group-hover:shadow-2xl transition-all duration-500">
+                    <Image
                       src={feature.image}
                       alt={feature.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      fill
+                      sizes="160px"
+                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      loading="lazy"
                     />
                   </div>
 

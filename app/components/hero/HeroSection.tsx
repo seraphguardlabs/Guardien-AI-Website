@@ -8,7 +8,7 @@ export default function HeroSection() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/medium-shot-man-kid-relaxing-home 2.png"
+          src="/medium-shot-man-kid-relaxing-home 2.webp"
           alt="Father and child together"
           fill
           className="object-cover"

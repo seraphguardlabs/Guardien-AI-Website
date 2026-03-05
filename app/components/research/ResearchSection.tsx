@@ -35,7 +35,7 @@ export default function ResearchSection() {
       id: 1,
       title: "AI-Powered Risk Detection",
       description: "Detects cyberbullying, paedophilic threats...",
-      image: "/Image.svg",
+      image: "/Image.webp",
     },
     {
       id: 2,
@@ -80,10 +80,14 @@ export default function ResearchSection() {
         className="absolute z-0 opacity-500"
         style={{ top: "-20%", left: 0, right: 0, bottom: 0 }}
       >
-        <img
-          src="/image 3280.svg"
+        <Image
+          src="/image 3280.webp"
           alt="Background pattern"
-          className="w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          loading="lazy"
+          quality={60}
         />
       </div>
 
