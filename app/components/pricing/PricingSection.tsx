@@ -254,7 +254,7 @@ export default function PricingSection() {
                   className="text-lg text-white/80 ml-2"
                   style={{ fontFamily: "var(--font-poppins)" }}
                 >
-                  Per month
+                  Per year
                 </span>
               </div>
             </div>
