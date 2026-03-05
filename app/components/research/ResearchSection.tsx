@@ -35,7 +35,7 @@ export default function ResearchSection() {
       id: 1,
       title: "AI-Powered Risk Detection",
       description: "Detects cyberbullying, paedophilic threats...",
-      image: "/Image.webp",
+      image: "/Image.svg",
     },
     {
       id: 2,

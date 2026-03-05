@@ -138,7 +138,7 @@ export default function PartnerSection() {
             }`}
           >
             <Image
-              src="/Group 1000002418.webp"
+              src="/Group 1000002418.png"
               alt="Team collaboration"
               fill
               className="object-contain hover:scale-105 transition-transform duration-700"
