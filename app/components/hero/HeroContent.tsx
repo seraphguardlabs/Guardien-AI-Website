@@ -156,7 +156,7 @@ export default function HeroContent() {
               </Link>
 
               <Link
-                href="#demo"
+                href="/coming-soon"
                 className="px-6 py-4 bg-white hover:bg-white/50 text-[#222] rounded-2xl backdrop-blur-sm border border-white/50 transition-colors text-center self-center sm:self-auto"
               >
                 Watch Demo
