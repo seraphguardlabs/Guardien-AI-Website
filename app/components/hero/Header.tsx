@@ -23,7 +23,7 @@ export default function Header() {
       className="fixed top-0 left-0 right-0 z-50 py-4"
       style={{ backgroundColor: "rgba(0, 21, 23, 0.50)" }}
     >
-      <nav className="flex items-center justify-between w-screen md:max-w-7xl  px-4 sm:px-6 lg:px-8">
+      <nav className="flex items-center justify-between w-screen md:max-w-screen  px-4 sm:px-6 lg:px-42">
         {/* Logo */}
         <Link href="/#" className="flex flex-col cursor-pointer z-50">
           <img
