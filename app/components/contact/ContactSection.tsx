@@ -64,6 +64,7 @@ export default function ContactSection() {
         {
           from_name: formData.name,
           from_email: formData.email,
+          name: formData.name,
           email: formData.email,
           phone: formData.phone,
           message: formData.message,
