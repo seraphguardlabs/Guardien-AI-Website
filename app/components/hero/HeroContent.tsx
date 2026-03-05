@@ -149,7 +149,7 @@ export default function HeroContent() {
               }`}
             >
               <Link
-                href="#early-access"
+                href="#contact"
                 className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white rounded-2xl transition-colors text-center self-center sm:self-auto"
               >
                 Request Early Access

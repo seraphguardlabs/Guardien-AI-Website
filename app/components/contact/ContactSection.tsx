@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import emailjs from "@emailjs/browser";
 
 export default function ContactSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -44,10 +45,40 @@ export default function ContactSection() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log(formData);
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("Please fill in name, email, and message.");
+      return;
+    }
+
+    setStatus("loading");
+    try {
+      await emailjs.send(
+        "service_2g3mh9v",
+        "template_n10v14p",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        },
+        "YD2Gz2fqz2GrsaOIj",
+      );
+      setStatus("success");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+      alert("Message sent successfully!");
+    } catch (error) {
+      console.error("Emailjs error:", error);
+      setStatus("error");
+      alert("Failed to send message. Please try again.");
+    } finally {
+      setStatus("idle");
+    }
   };
 
   return (
@@ -168,13 +199,18 @@ export default function ContactSection() {
           <div className="flex justify-center pt-4">
             <button
               type="submit"
-              className="px-24 py-2 rounded-2xl text-white hover:bg-orange-700 hover:shadow-lg transition-all duration-300 font-light transform hover:scale-105"
+              disabled={status === "loading"}
+              className={`px-24 py-2 rounded-2xl text-white transition-all duration-300 font-light ${
+                status === "loading"
+                  ? "opacity-70 cursor-not-allowed"
+                  : "hover:bg-orange-700 hover:shadow-lg transform hover:scale-105"
+              }`}
               style={{
                 backgroundColor: "#FE763C",
                 fontFamily: "var(--font-poppins)",
               }}
             >
-              Send
+              {status === "loading" ? "Sending..." : "Send"}
             </button>
           </div>
         </form>
