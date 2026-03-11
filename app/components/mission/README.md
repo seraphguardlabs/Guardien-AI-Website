@@ -1,6 +1,6 @@
 # Mission Section Component
 
-This folder contains the Mission section component for the Guardian AI website.
+This folder contains the Mission section component for the GuardienAI website.
 
 ## Components
 
@@ -10,7 +10,7 @@ The mission section component featuring:
 
 - SVG background pattern (image 3280.svg)
 - Mission statement heading
-- Detailed description of Guardian AI's purpose
+- Detailed description of GuardienAI's purpose
 - Statistics grid showing key metrics
 - Dark theme with cyan accent colors
 

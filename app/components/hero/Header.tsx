@@ -15,7 +15,7 @@ export default function Header() {
     }
     return () => {
       document.body.style.overflow = "unset";
-    }
+    };
   }, [isMobileMenuOpen]);
 
   return (
@@ -28,7 +28,7 @@ export default function Header() {
         <Link href="/#" className="flex flex-col cursor-pointer z-50">
           <img
             src="/Vector.svg"
-            alt="Guardian AI Parental Control"
+            alt="GuardienAI"
             className="relative z-50 w-32 sm:w-[180px] h-auto"
           />
         </Link>
@@ -65,7 +65,7 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="md:hidden text-white z-50 relative p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
@@ -103,21 +103,23 @@ export default function Header() {
       </nav>
 
       {/* Mobile Sliding Panel Menu */}
-      <div 
+      <div
         className={`fixed inset-0 z-40 transition-opacity duration-300 ease-in-out md:hidden ${
-          isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          isMobileMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
       >
         {/* Dark Overlay Overlay */}
-        <div 
+        <div
           className="absolute inset-0 bg-black/60 backdrop-blur-sm"
           onClick={() => setIsMobileMenuOpen(false)}
         />
-        
+
         {/* Right Side Panel */}
-        <div 
+        <div
           className={`absolute top-0 right-0 bottom-0 w-[80%] max-w-sm bg-[#001517] shadow-2xl transition-transform duration-300 ease-in-out flex flex-col pt-24 px-8 border-l border-white/10 ${
-            isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
           <div className="flex flex-col gap-8 font-light text-xl">

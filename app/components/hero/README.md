@@ -1,6 +1,6 @@
 # Hero Section Components
 
-This folder contains all the components for the Guardian AI hero section.
+This folder contains all the components for the GuardienAI hero section.
 
 ## Components
 
@@ -16,7 +16,7 @@ Main container component that:
 
 Navigation header component featuring:
 
-- Guardian AI logo and branding
+- GuardienAI logo and branding
 - Navigation links (Mission, Pricing, Research)
 - Contact Us button
 - Responsive mobile menu button

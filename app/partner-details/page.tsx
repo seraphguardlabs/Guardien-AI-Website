@@ -14,12 +14,7 @@ export default function PartnerDetailsPage() {
           {/* Logo */}
           <div className="flex flex-col">
             <Link href="/">
-              <img
-                src="/Vector.svg"
-                alt="Guardian AI Parental Control"
-                width={180}
-                height={40}
-              />
+              <img src="/Vector.svg" alt="GuardienAI" width={180} height={40} />
             </Link>
           </div>
 

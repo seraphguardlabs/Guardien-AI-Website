@@ -25,11 +25,11 @@ export default function Footer() {
                 +91 8954578
               </p>
               <a
-                href="mailto:Contact@GuardianAI.Com"
+                href="mailto:Contact@GuardienAI.Com"
                 className="text-white/70 text-xs hover:text-white transition-colors block"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
-                Contact@GuardianAI.Com
+                Contact@GuardienAI.Com
               </a>
             </div>
           </div>
@@ -125,7 +125,7 @@ export default function Footer() {
             className="text-white/70 text-xs"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
-            Copyright © 2026 GuardianAI® All Rights Reserved.
+            Copyright © 2026 GuardienAI® All Rights Reserved.
           </p>
         </div>
       </div>
