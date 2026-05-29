@@ -33,38 +33,8 @@ export default function ResearchSection() {
   const researchItems = [
     {
       id: 1,
-      title: "AI-Powered Risk Detection",
-      description: "Detects cyberbullying, paedophilic threats...",
-      image: "/Image.svg",
-    },
-    {
-      id: 2,
-      title: "AI-Powered Risk Detection",
-      description: "Detects cyberbullying, paedophilic threats...",
-      image: "/Image.svg",
-    },
-    {
-      id: 3,
-      title: "AI-Powered Risk Detection",
-      description: "Detects cyberbullying, paedophilic threats...",
-      image: "/Image.svg",
-    },
-    {
-      id: 4,
-      title: "AI-Powered Risk Detection",
-      description: "Detects cyberbullying, paedophilic threats...",
-      image: "/Image.svg",
-    },
-    {
-      id: 5,
-      title: "AI-Powered Risk Detection",
-      description: "Detects cyberbullying, paedophilic threats...",
-      image: "/Image.svg",
-    },
-    {
-      id: 6,
-      title: "AI-Powered Risk Detection",
-      description: "Detects cyberbullying, paedophilic threats...",
+      title: "Child Digital Security White Paper",
+      description: "Guardien AI x Seraphguard Labs comprehensive white paper on protecting children in the digital age.",
       image: "/Image.svg",
     },
   ];
@@ -103,7 +73,7 @@ export default function ResearchSection() {
         </h2>
 
         {/* Research Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 mb-16">
           {researchItems.map((item, index) => (
             <div
               key={item.id}
@@ -141,12 +111,14 @@ export default function ResearchSection() {
                   {item.description}
                 </p>
                 <a
-                  href="#"
+                  href="/files/Child Digital Security White Paper - Guardien AI x Seraphguard Labs.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-[#002227] hover:text-orange-600 transition-all duration-300 group-hover:gap-3"
                   style={{ fontFamily: "var(--font-poppins)" }}
                 >
                   <span className="text-sm md:text-base font-medium">
-                    Read more
+                    Read White Paper
                   </span>
                   <svg
                     className="w-4 h-4 transform transition-transform"
@@ -166,6 +138,7 @@ export default function ResearchSection() {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
