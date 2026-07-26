@@ -7,19 +7,25 @@ import { ValuesSection } from "./components/values";
 import { PricingSection } from "./components/pricing";
 import { ContactSection } from "./components/contact";
 import { Footer } from "./components/footer";
+import { IntroOverlay } from "./components/intro";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <HeroSection />
-      <MissionSection />
-      <AcceleratorSection />
-      <FeaturesSection />
-      <DifferentSection />
-      <ValuesSection />
-      <PricingSection />
-      <ContactSection />
-      <Footer />
-    </main>
+    <>
+      {/* Rendered outside <main> so it can never be clipped by it, and so the
+          whole page can be made inert in one attribute while it plays. */}
+      <IntroOverlay />
+      <main id="site-main" className="min-h-screen">
+        <HeroSection />
+        <MissionSection />
+        <AcceleratorSection />
+        <FeaturesSection />
+        <DifferentSection />
+        <ValuesSection />
+        <PricingSection />
+        <ContactSection />
+        <Footer />
+      </main>
+    </>
   );
 }

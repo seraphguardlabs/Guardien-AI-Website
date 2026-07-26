@@ -46,3 +46,30 @@ body {
 .animate-fadeIn {
   animation: fadeIn 0.7s ease-out forwards;
 }
+
+/* ---- Intro sequence -------------------------------------------------------
+   Visibility is decided by the `data-intro` attribute that IntroBootScript
+   stamps on <html> before <body> is parsed, so the right thing paints on the
+   first frame with no JS-dependent flash in either direction.               */
+
+/* Default hidden — covers no-JS, crawlers, and any pre-attribute case. */
+#sgl-intro {
+  display: none;
+}
+
+html[data-intro="on"] #sgl-intro,
+html[data-intro="reduced"] #sgl-intro {
+  display: block;
+}
+
+html[data-intro="on"],
+html[data-intro="reduced"] {
+  /* Locked on <html>, not <body>: Header.tsx writes an inline
+     body.style.overflow = "unset" on mount, which would beat any body rule. */
+  overflow: hidden;
+  /* Reserve the scrollbar track so releasing the lock causes no reflow. */
+  scrollbar-gutter: stable;
+  /* Never reveal white behind the curtain if the hero image is still in
+     flight. Scoped to the intro so the stale :root tokens stay untouched. */
+  background-color: #001517;
+}

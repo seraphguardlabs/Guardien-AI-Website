@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { INTRO_REVEAL_EVENT } from "../intro/introConfig";
 
 export default function HeroContent() {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,8 +12,29 @@ export default function HeroContent() {
   const erasingSpeed = 50; // milliseconds per character when erasing
   const pauseDuration = 2000; // pause at end before erasing
 
+  // When the intro is playing, hold this entrance until the curtain starts
+  // lifting, so the hero is mid-animation as the black clears — the page reads
+  // as having been revealed rather than as having just loaded.
   useEffect(() => {
-    setIsVisible(true);
+    if (document.documentElement.getAttribute("data-intro") === null) {
+      setIsVisible(true); // no intro on this load
+      return;
+    }
+
+    let fired = false;
+    const go = () => {
+      if (fired) return;
+      fired = true;
+      setIsVisible(true);
+    };
+
+    window.addEventListener(INTRO_REVEAL_EVENT, go, { once: true });
+    const safety = setTimeout(go, 4500); // never strand the hero
+
+    return () => {
+      window.removeEventListener(INTRO_REVEAL_EVENT, go);
+      clearTimeout(safety);
+    };
   }, []);
 
   useEffect(() => {
@@ -21,47 +43,73 @@ export default function HeroContent() {
     let currentIndex = 0;
     let isTyping = true;
 
+    // Every handle is tracked so cleanup can clear all of them. Without this
+    // the intervals outlive the effect, and a re-run (React StrictMode in dev)
+    // leaves two typewriters writing to the same state.
+    const timeouts = new Set<ReturnType<typeof setTimeout>>();
+    const intervals = new Set<ReturnType<typeof setInterval>>();
+
+    const later = (fn: () => void, ms: number) => {
+      const id = setTimeout(() => {
+        timeouts.delete(id);
+        fn();
+      }, ms);
+      timeouts.add(id);
+      return id;
+    };
+
+    const every = (fn: () => void, ms: number) => {
+      const id = setInterval(fn, ms);
+      intervals.add(id);
+      return id;
+    };
+
+    const stop = (id: ReturnType<typeof setInterval>) => {
+      clearInterval(id);
+      intervals.delete(id);
+    };
+
     const startTyping = () => {
-      const typeInterval = setInterval(() => {
-        if (isTyping) {
-          // Typing phase
-          if (currentIndex <= fullText.length) {
-            setTypedText(fullText.slice(0, currentIndex));
-            currentIndex++;
-          } else {
-            // Finished typing, pause then start erasing
-            clearInterval(typeInterval);
-            setTimeout(() => {
-              isTyping = false;
-              currentIndex = fullText.length;
-              startErasing();
-            }, pauseDuration);
-          }
+      const typeInterval = every(() => {
+        if (!isTyping) return;
+        // Typing phase
+        if (currentIndex <= fullText.length) {
+          setTypedText(fullText.slice(0, currentIndex));
+          currentIndex++;
+        } else {
+          // Finished typing, pause then start erasing
+          stop(typeInterval);
+          later(() => {
+            isTyping = false;
+            currentIndex = fullText.length;
+            startErasing();
+          }, pauseDuration);
         }
       }, typingSpeed);
     };
 
     const startErasing = () => {
-      const eraseInterval = setInterval(() => {
+      const eraseInterval = every(() => {
         if (currentIndex >= 0) {
           setTypedText(fullText.slice(0, currentIndex));
           currentIndex--;
         } else {
           // Finished erasing, start typing again
-          clearInterval(eraseInterval);
+          stop(eraseInterval);
           isTyping = true;
           currentIndex = 0;
-          setTimeout(startTyping, 500);
+          later(startTyping, 500);
         }
       }, erasingSpeed);
     };
 
-    const initialTimeout = setTimeout(() => {
-      startTyping();
-    }, 500);
+    later(startTyping, 500);
 
     return () => {
-      clearTimeout(initialTimeout);
+      timeouts.forEach(clearTimeout);
+      intervals.forEach(clearInterval);
+      timeouts.clear();
+      intervals.clear();
     };
   }, [isVisible]);
 
