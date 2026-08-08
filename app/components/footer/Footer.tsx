@@ -119,14 +119,21 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="pt-6 border-t border-white/10">
+        {/* Legal Links */}
+        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p
             className="text-white/70 text-xs"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
             Copyright © 2026 GuardienAI® All Rights Reserved.
           </p>
+          <a
+            href="/terms"
+            className="text-white/70 text-xs hover:text-white transition-colors"
+            style={{ fontFamily: "var(--font-poppins)" }}
+          >
+            Terms &amp; Conditions
+          </a>
         </div>
       </div>
     </footer>
