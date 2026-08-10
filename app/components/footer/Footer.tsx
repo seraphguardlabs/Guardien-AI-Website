@@ -127,13 +127,22 @@ export default function Footer() {
           >
             Copyright © 2026 GuardienAI® All Rights Reserved.
           </p>
-          <a
-            href="/terms"
-            className="text-white/70 text-xs hover:text-white transition-colors"
-            style={{ fontFamily: "var(--font-poppins)" }}
-          >
-            Terms &amp; Conditions
-          </a>
+          <div className="flex items-center gap-6">
+            <a
+              href="/terms"
+              className="text-white/70 text-xs hover:text-white transition-colors"
+              style={{ fontFamily: "var(--font-poppins)" }}
+            >
+              Terms &amp; Conditions
+            </a>
+            <a
+              href="/delete-account"
+              className="text-white/70 text-xs hover:text-white transition-colors"
+              style={{ fontFamily: "var(--font-poppins)" }}
+            >
+              Delete Account
+            </a>
+          </div>
         </div>
       </div>
     </footer>
