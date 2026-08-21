@@ -182,7 +182,7 @@ export default function ContactSection() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#9fbfd6] opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-[#9fbfd6]" />
                 </span>
-                We typically respond within 24 hours
+                We&apos;ll get back to you shortly
               </div>
             </div>
           </div>

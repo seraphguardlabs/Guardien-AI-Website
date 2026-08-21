@@ -4,13 +4,12 @@ import { Footer } from "../components/footer";
 export default function TermsPage() {
   return (
     <main className="min-h-screen bg-[#E4EDF4] pt-24">
-      <div className="fixed top-0 left-0 right-0 z-40 h-24 bg-[#001a2d] w-full" />
       <div className="relative z-50">
-        <Header />
+        <Header forceLight />
       </div>
 
-      <div className="relative z-10 pb-16">
-        <section className="py-12">
+      <div className="relative z-10">
+        <section className="py-12 pb-16">
           <div className="max-w-4xl mx-auto px-6">
             <h1
               className="text-4xl md:text-5xl lg:text-6xl text-center mb-8"

@@ -3,9 +3,16 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-export default function Header() {
+export default function Header({
+  forceLight = false,
+}: {
+  /** Pages without a dark hero behind the header (research, terms, etc.)
+   *  should render the light bar from the start instead of the transparent
+   *  glass bar, which is unreadable on a light page background. */
+  forceLight?: boolean;
+}) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(forceLight);
 
   // Prevent scrolling when mobile menu is open
   useEffect(() => {
@@ -22,11 +29,12 @@ export default function Header() {
   // Switch from a transparent glass bar over the hero photo to a light,
   // blurred bar once the page scrolls past the hero.
   useEffect(() => {
+    if (forceLight) return;
     const onScroll = () => setIsScrolled(window.scrollY > 80);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [forceLight]);
 
   const linkColor = isScrolled ? "text-[#001A2D]/80" : "text-white/90";
   const linkHover = isScrolled ? "hover:text-[#001A2D]" : "hover:text-white";
@@ -42,18 +50,23 @@ export default function Header() {
     >
       <nav className="container-wide flex items-center justify-between">
         {/* Logo */}
-        <Link href="/#" className="flex items-center cursor-pointer z-50">
+        <Link href="/#" className="flex items-center gap-2 cursor-pointer z-50">
+          <img
+            src="/guardien-ai-icon-512.png"
+            alt=""
+            className="h-8 w-8 sm:h-9 sm:w-9 flex-shrink-0"
+          />
           {isScrolled ? (
             <img
               src="/guardien-ai-word-dark.svg"
               alt="Guardien AI"
-              className="w-28 sm:w-[150px] h-auto max-h-10"
+              className="w-24 sm:w-[130px] h-auto max-h-10"
             />
           ) : (
             <img
               src="/guardien-ai-word-light.svg"
               alt="Guardien AI"
-              className="w-28 sm:w-[150px] h-auto max-h-10"
+              className="w-24 sm:w-[130px] h-auto max-h-10"
             />
           )}
         </Link>
@@ -134,7 +147,7 @@ export default function Header() {
 
       {/* Mobile Sliding Panel Menu */}
       <div
-        className={`fixed inset-0 z-[105] transition-opacity duration-300 ease-in-out md:hidden ${
+        className={`fixed inset-0 h-dvh z-[105] transition-opacity duration-300 ease-in-out md:hidden ${
           isMobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -148,7 +161,7 @@ export default function Header() {
 
         {/* Right Side Panel */}
         <div
-          className={`absolute top-0 right-0 bottom-0 w-[80%] max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-in-out flex flex-col pt-24 px-8 border-l border-[#001A2D]/10 ${
+          className={`absolute top-0 right-0 h-dvh w-[80%] max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-in-out flex flex-col pt-24 px-8 pb-10 overflow-y-auto border-l border-[#001A2D]/10 ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
