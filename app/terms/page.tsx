@@ -3,8 +3,8 @@ import { Footer } from "../components/footer";
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-[#E8EEF2] pt-24">
-      <div className="fixed top-0 left-0 right-0 z-40 h-24 bg-[#001517] w-full" />
+    <main className="min-h-screen bg-[#E4EDF4] pt-24">
+      <div className="fixed top-0 left-0 right-0 z-40 h-24 bg-[#001a2d] w-full" />
       <div className="relative z-50">
         <Header />
       </div>
@@ -14,7 +14,7 @@ export default function TermsPage() {
           <div className="max-w-4xl mx-auto px-6">
             <h1
               className="text-4xl md:text-5xl lg:text-6xl text-center mb-8"
-              style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+              style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
             >
               Guardien AI Terms and Conditions
             </h1>
@@ -23,7 +23,7 @@ export default function TermsPage() {
               className="space-y-6 text-sm md:text-base"
               style={{
                 fontFamily: "var(--font-poppins)",
-                color: "#001517",
+                color: "#001a2d",
                 lineHeight: "1.8",
               }}
             >
@@ -48,7 +48,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 1. What Guardien AI Is
               </h2>
@@ -89,7 +89,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 2. Continuous Improvement
               </h2>
@@ -114,7 +114,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 3. Eligibility and Guardian Responsibility
               </h2>
@@ -151,7 +151,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 4. Devices, Pairing and Child Profiles
               </h2>
@@ -176,7 +176,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 5. Device Requirements and Permissions
               </h2>
@@ -195,7 +195,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 6. Information We Collect and Why
               </h2>
@@ -522,7 +522,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 7. Data Retention
               </h2>
@@ -550,7 +550,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 8. Third-Party Services
               </h2>
@@ -571,7 +571,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 9. Acceptable Use
               </h2>
@@ -597,7 +597,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 10. Intellectual Property
               </h2>
@@ -616,7 +616,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 11. Account Deletion and Termination
               </h2>
@@ -640,7 +640,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 12. Disclaimer of Warranties
               </h2>
@@ -664,7 +664,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 13. Limitation of Liability
               </h2>
@@ -690,7 +690,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 14. Indemnification
               </h2>
@@ -710,7 +710,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 15. Force Majeure
               </h2>
@@ -724,7 +724,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 16. Changes to These Terms
               </h2>
@@ -744,7 +744,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 17. Governing Law and Jurisdiction
               </h2>
@@ -761,7 +761,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 18. Severability
               </h2>
@@ -773,7 +773,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 19. Entire Agreement
               </h2>
@@ -787,7 +787,7 @@ export default function TermsPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 20. Contact
               </h2>
@@ -802,7 +802,7 @@ export default function TermsPage() {
                 <strong>Email:</strong>{" "}
                 <a
                   href="mailto:tech@seraphguardlabs.com"
-                  className="text-[#00676D] hover:underline"
+                  className="text-[#025794] hover:underline"
                 >
                   tech@seraphguardlabs.com
                 </a>

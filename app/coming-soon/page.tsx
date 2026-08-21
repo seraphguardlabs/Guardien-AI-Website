@@ -7,7 +7,7 @@ export default function ComingSoon() {
   return (
     <main
       className="min-h-screen w-full relative flex flex-col items-center justify-center overflow-hidden"
-      style={{ backgroundColor: "#002D34" }}
+      style={{ backgroundColor: "#001a2d" }}
     >
       {/* Background Effect */}
       <div className="absolute inset-0 z-0 opacity-40">
@@ -38,9 +38,9 @@ export default function ComingSoon() {
 
         <Link
           href="/"
-          className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white rounded-2xl transition-all duration-300 font-light hover:scale-105 shadow-lg flex items-center gap-2"
+          className="px-8 py-4 text-white rounded-2xl transition-all duration-300 font-light hover:scale-105 shadow-lg flex items-center gap-2 hover:brightness-110"
           style={{
-            backgroundColor: "#FE763C",
+            backgroundColor: "#025794",
             fontFamily: "var(--font-poppins)",
           }}
         >

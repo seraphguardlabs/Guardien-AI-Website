@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function MissionSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,70 +35,84 @@ export default function MissionSection() {
     <section
       ref={sectionRef}
       id="mission"
-      className="relative w-full min-h-screen flex items-center justify-center py-20 overflow-hidden"
-      style={{ backgroundColor: "#DBE3E5" }}
+      className="relative w-full py-24 md:py-28 bg-[#E4EDF4] overflow-hidden"
     >
-      {/* Background SVG Pattern */}
-      <div className="absolute inset-0 z-0 opacity-500">
-        <Image
-          src="/image 3280.webp"
-          alt="Background pattern"
-          fill
-          sizes="100vw"
-          className="object-cover"
-          loading="lazy"
-          quality={60}
-        />
-      </div>
+      <div className="container-wide">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+          {/* Left - layered image composition */}
+          <div
+            className={`relative h-[380px] sm:h-[460px] md:h-[520px] transition-all duration-1000 ease-out ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-16"
+            }`}
+          >
+            {/* Dominant image */}
+            <div className="absolute top-0 left-0 w-[72%] h-[78%] rounded-[2rem] overflow-hidden">
+              <Image
+                src="/pexels-canva-studio-3153201.webp"
+                alt="Family using technology together"
+                fill
+                sizes="(max-width: 1024px) 70vw, 35vw"
+                className="object-cover"
+                loading="lazy"
+              />
+            </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        {/* Small Label */}
-        <p
-          className={`text-0.5xl md:text-xl lg:text-xl text-[#143039] mb-2 font-medium tracking-wide transition-all duration-1000 ease-out ${
-            isVisible
-              ? "opacity-100 translate-x-0"
-              : "opacity-0 -translate-x-20"
-          }`}
-        >
-          Why We Exist
-        </p>
+            {/* Supporting image */}
+            <div className="absolute bottom-0 right-0 w-[48%] h-[46%] rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+              <Image
+                src="/Image.webp"
+                alt="Child safely using a device"
+                fill
+                sizes="(max-width: 1024px) 40vw, 20vw"
+                className="object-cover"
+                loading="lazy"
+              />
+            </div>
 
-        {/* Main Heading */}
-        <h1
-          className="text-4xl md:text-5xl lg:text-6xl text-[#143039] leading-tight"
-          style={{ fontFamily: "var(--font-caudex)" }}
-        >
-          <span
-            className={`block font-bold transition-all duration-1000 delay-200 ease-out ${
-              isVisible
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 -translate-x-32"
+            {/* Floating stat card */}
+            <div className="absolute bottom-6 left-0 w-[58%] card-soft p-5 z-10">
+              <div
+                className="text-3xl font-bold text-[#025794] mb-1"
+                style={{ fontFamily: "var(--font-caudex)" }}
+              >
+                300+
+              </div>
+              <p className="text-xs text-[#001A2D]/60 leading-snug">
+                Millions of Children Abused Online
+              </p>
+            </div>
+          </div>
+
+          {/* Right - copy */}
+          <div
+            className={`transition-all duration-1000 delay-200 ease-out ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-16"
             }`}
           >
-            Protecting and Empowering
-          </span>
-          <br />
-          <span
-            className={`block font-light transition-all duration-1000 delay-400 ease-out ${
-              isVisible
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 translate-x-32"
-            }`}
-          >
-            digital childhood through ethical,
-          </span>
-          <br />
-          <span
-            className={`block font-bold transition-all duration-1000 delay-600 ease-out ${
-              isVisible
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 -translate-x-32"
-            }`}
-          >
-            Privacy-First AI
-          </span>
-        </h1>
+            <p className="eyebrow text-[#025794] mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#025794]" />
+              Why We Exist
+            </p>
+
+            <h2
+              className="text-3xl md:text-4xl lg:text-5xl text-[#001A2D] leading-tight mb-6"
+              style={{ fontFamily: "var(--font-caudex)" }}
+            >
+              <span className="block font-bold">Protecting and Empowering</span>
+              <span className="block font-light">digital childhood through ethical,</span>
+              <span className="block font-bold">Privacy-First AI</span>
+            </h2>
+
+            <p className="text-base text-[#001A2D]/70 leading-relaxed max-w-md mb-8">
+              A trusted partner for parents - protecting children while
+              respecting privacy.
+            </p>
+
+            <Link href="#contact" className="btn-pill btn-pill-primary">
+              Request Early Access
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

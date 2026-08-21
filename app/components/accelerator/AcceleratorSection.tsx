@@ -93,18 +93,18 @@ export default function AcceleratorSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full py-16 md:py-20"
-      style={{
-        background: "linear-gradient(348deg, #001A1B 48.99%, #005C65 140.03%)",
-        borderBottom: "1px solid rgba(255, 255, 255, 0.15)",
-      }}
+      className="w-full py-20 md:py-24 bg-white"
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
+      <div className="container-wide">
+        <p className="eyebrow text-[#025794] mb-4 justify-center">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#025794]" />
+          Why It Matters
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className={`text-center transition-all duration-1000 ease-out ${
+              className={`card-soft p-7 text-center transition-all duration-1000 ease-out ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -113,7 +113,7 @@ export default function AcceleratorSection() {
             >
               {/* Stat Value */}
               <div
-                className="text-5xl md:text-6xl font-bold text-[#93D4FF] mb-4"
+                className="text-4xl md:text-5xl font-bold text-[#025794] mb-3"
                 style={{ fontFamily: "var(--font-caudex)" }}
               >
                 {counts[index].toFixed(stat.decimals)}
@@ -122,7 +122,7 @@ export default function AcceleratorSection() {
 
               {/* Stat Label */}
               <p
-                className="text-sm md:text-base text-white leading-relaxed whitespace-pre-line"
+                className="text-sm text-[#001A2D]/65 leading-relaxed whitespace-pre-line"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
                 {stat.label}

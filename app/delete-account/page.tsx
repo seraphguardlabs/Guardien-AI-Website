@@ -3,8 +3,8 @@ import { Footer } from "../components/footer";
 
 export default function DeleteAccountPage() {
   return (
-    <main className="min-h-screen bg-[#E8EEF2] pt-24">
-      <div className="fixed top-0 left-0 right-0 z-40 h-24 bg-[#001517] w-full" />
+    <main className="min-h-screen bg-[#E4EDF4] pt-24">
+      <div className="fixed top-0 left-0 right-0 z-40 h-24 bg-[#001a2d] w-full" />
       <div className="relative z-50">
         <Header />
       </div>
@@ -14,7 +14,7 @@ export default function DeleteAccountPage() {
           <div className="max-w-4xl mx-auto px-6">
             <h1
               className="text-4xl md:text-5xl lg:text-6xl text-center mb-8"
-              style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+              style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
             >
               Request Account Deletion
             </h1>
@@ -23,7 +23,7 @@ export default function DeleteAccountPage() {
               className="space-y-6 text-sm md:text-base"
               style={{
                 fontFamily: "var(--font-poppins)",
-                color: "#001517",
+                color: "#001a2d",
                 lineHeight: "1.8",
               }}
             >
@@ -36,7 +36,7 @@ export default function DeleteAccountPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 How to Request Account Deletion
               </h2>
@@ -61,7 +61,7 @@ export default function DeleteAccountPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 Data That Is Deleted
               </h2>
@@ -83,7 +83,7 @@ export default function DeleteAccountPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 Data Retention and Processing Time
               </h2>
@@ -100,7 +100,7 @@ export default function DeleteAccountPage() {
 
               <h2
                 className="text-2xl font-semibold mt-10"
-                style={{ fontFamily: "var(--font-caudex)", color: "#001517" }}
+                style={{ fontFamily: "var(--font-caudex)", color: "#001a2d" }}
               >
                 Need Help?
               </h2>
@@ -109,7 +109,7 @@ export default function DeleteAccountPage() {
                 personal data, please contact us at{" "}
                 <a
                   href="mailto:tech@seraphguardlabs.com"
-                  className="text-[#00676D] hover:underline"
+                  className="text-[#025794] hover:underline"
                 >
                   tech@seraphguardlabs.com
                 </a>

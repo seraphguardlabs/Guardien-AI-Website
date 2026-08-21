@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 export default function PartnerSection() {
@@ -36,12 +34,7 @@ export default function PartnerSection() {
       ref={sectionRef}
       className="py-20 md:py-32"
       style={{
-        background: "#002227",
-        backgroundImage:
-          "url('/green-aurora-with-aurora-borealis-visible-background 1.webp')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+        background: "#001a2d",
       }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">

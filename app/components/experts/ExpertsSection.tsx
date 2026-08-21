@@ -55,7 +55,7 @@ export default function ExpertsSection() {
     <section
       ref={sectionRef}
       className="py-20 md:py-32"
-      style={{ background: "#002227" }}
+      style={{ background: "#001a2d" }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -124,7 +124,7 @@ export default function ExpertsSection() {
             {/* Read More Link */}
             <a
               href="#"
-              className={`inline-flex items-center gap-2 text-[#EE7D4B] hover:text-orange-600 hover:gap-3 transition-all duration-300 group ${
+              className={`inline-flex items-center gap-2 text-[#025794] hover:text-[#013f6d] hover:gap-3 transition-all duration-300 group ${
                 isVisible
                   ? "opacity-100 translate-x-0"
                   : "opacity-0 translate-x-20"

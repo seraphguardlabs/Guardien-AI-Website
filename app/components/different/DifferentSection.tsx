@@ -89,13 +89,21 @@ export default function DifferentSection() {
   return (
     <section
       ref={sectionRef}
-      className="w-full py-18 overflow-hidden"
-      style={{ backgroundColor: "#DBE3E5" }}
+      className="w-full py-24 md:py-28 bg-white overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="container-wide">
+        <p
+          className={`eyebrow text-[#025794] mb-4 transition-all duration-1000 ease-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6"
+          }`}
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-[#025794]" />
+          Our Approach
+        </p>
+
         {/* Main Heading */}
         <h2
-          className={`text-3xl md:text-4xl lg:text-5xl font-bold text-[#001517] mb-16 transition-all duration-1000 ease-out ${
+          className={`text-3xl md:text-4xl lg:text-5xl font-bold text-[#001A2D] mb-16 transition-all duration-1000 ease-out ${
             isVisible
               ? "opacity-100 translate-y-0"
               : "opacity-0 -translate-y-10"
@@ -111,7 +119,7 @@ export default function DifferentSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Image */}
           <div
-            className={`overflow-hidden rounded-2xl bg-[#DBE3E5] h-[320px] md:h-[350px] relative transition-all duration-1000 delay-200 ease-out ${
+            className={`overflow-hidden rounded-[2rem] bg-[#E4EDF4] h-[320px] md:h-[380px] relative transition-all duration-1000 delay-200 ease-out ${
               isVisible
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 -translate-x-20"
@@ -130,7 +138,7 @@ export default function DifferentSection() {
 
           {/* Right Column - Feature Card */}
           <div
-            className={`relative bg-[#DBE3E5] rounded-3xl p-8 md:p-12 transition-all duration-1000 delay-400 ease-out ${
+            className={`card-soft relative p-8 md:p-12 transition-all duration-1000 delay-400 ease-out ${
               isVisible
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 translate-x-20"
@@ -139,7 +147,7 @@ export default function DifferentSection() {
             {/* Feature Content */}
             <h3
               key={`title-${currentSlide}`}
-              className="text-2xl md:text-3xl font-semibold text-[#001517] mb-3 transition-all duration-500 animate-fadeIn"
+              className="text-2xl md:text-3xl font-semibold text-[#001A2D] mb-3 transition-all duration-500 animate-fadeIn"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               {features[currentSlide].title}
@@ -147,7 +155,7 @@ export default function DifferentSection() {
 
             <p
               key={`subtitle-${currentSlide}`}
-              className="text-lg font-medium text-[#001517] mb-4 transition-all duration-500 delay-100 animate-fadeIn"
+              className="text-lg font-medium text-[#025794] mb-4 transition-all duration-500 delay-100 animate-fadeIn"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               {features[currentSlide].subtitle}
@@ -155,7 +163,7 @@ export default function DifferentSection() {
 
             <p
               key={`description-${currentSlide}`}
-              className="text-base text-[#001517]/70 leading-relaxed mb-8 transition-all duration-500 delay-200 animate-fadeIn"
+              className="text-base text-[#001A2D]/70 leading-relaxed mb-8 transition-all duration-500 delay-200 animate-fadeIn"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               {features[currentSlide].description}
@@ -171,8 +179,8 @@ export default function DifferentSection() {
                     onClick={() => goToSlide(index)}
                     className={`h-2 rounded-full transition-all duration-300 hover:scale-125 ${
                       currentSlide === index
-                        ? "w-8 bg-[#005C67]"
-                        : "w-2 bg-[#001517]/30 hover:bg-[#001517]/50"
+                        ? "w-8 bg-[#025794]"
+                        : "w-2 bg-[#001A2D]/20 hover:bg-[#001A2D]/40"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
@@ -182,7 +190,7 @@ export default function DifferentSection() {
               {/* Next Arrow */}
               <button
                 onClick={nextSlide}
-                className="w-10 h-10 rounded-full border-2 border-[#001517] text-black flex items-center justify-center hover:bg-[#001517] hover:text-white hover:scale-110 hover:shadow-lg transition-all duration-300"
+                className="w-10 h-10 rounded-full border-2 border-[#025794] text-[#025794] flex items-center justify-center hover:bg-[#025794] hover:text-white hover:scale-110 hover:shadow-lg transition-all duration-300"
                 aria-label="Next slide"
               >
                 <svg
