@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect, type RefObject } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 const heroStats = [
   { value: "50.4%", label: "Daily Non-School Screen Time" },
@@ -11,7 +11,7 @@ const heroStats = [
   { value: "300+", label: "Millions of Children Abused Online" },
 ];
 
-const statBadgeVariants = {
+const statBadgeVariants: Variants = {
   initial: {
     x: -60,
     y: 35,
