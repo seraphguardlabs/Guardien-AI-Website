@@ -50,7 +50,16 @@ export default function Header({
     >
       <nav className="container-wide flex items-center justify-between">
         {/* Logo */}
-        <Link href="/#" className="flex items-center gap-2 cursor-pointer z-50">
+        <Link
+          href="/"
+          onClick={(e) => {
+            if (window.location.pathname === "/" || window.location.pathname === "") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+          className="flex items-center gap-2 cursor-pointer z-50"
+        >
           <img
             src="/guardien-ai-icon-512.png"
             alt=""
