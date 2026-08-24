@@ -1,14 +1,6 @@
 "use client";
 
-import {
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  type CSSProperties,
-  type ReactNode,
-  type TransitionEvent,
-} from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import Image from "next/image";
 
 const icons: Record<string, ReactNode> = {
@@ -85,135 +77,9 @@ const features = [
   },
 ];
 
-function FeatureContent({ feat }: { feat: (typeof features)[number] }) {
-  return (
-    <>
-      <div className="w-12 h-12 rounded-2xl bg-[#025794]/10 flex items-center justify-center mb-5">
-        <Icon name={feat.icon} className="w-6 h-6 text-[#025794]" />
-      </div>
-      <h3
-        className="text-2xl md:text-3xl font-bold text-[#001A2D] mb-3"
-        style={{ fontFamily: "var(--font-caudex)" }}
-      >
-        {feat.title}
-      </h3>
-      <p className="text-base text-[#001A2D]/65 leading-relaxed max-w-md">
-        {feat.description}
-      </p>
-      {feat.stat && (
-        <div className="mt-5 flex items-baseline gap-2">
-          <span className="text-3xl font-bold text-[#025794]" style={{ fontFamily: "var(--font-caudex)" }}>
-            {feat.stat.value}
-          </span>
-          <span className="text-sm text-[#001A2D]/50">{feat.stat.label}</span>
-        </div>
-      )}
-    </>
-  );
-}
-
-// Duration of each half of the flip (rotate-out, then rotate-in). Kept short
-// with a snappy deceleration curve so the transition reads as "instant", not laggy.
-const FLIP_MS = 220;
-const FLIP_EASING = "cubic-bezier(0.22, 1, 0.36, 1)";
-
 export default function FeaturesSection() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const [active, setActive] = useState(0);
-  const [rotation, setRotation] = useState(0);
-  const [animate, setAnimate] = useState(true);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const timerRef = useRef<ReturnType<typeof setInterval>>(null);
-  const busy = useRef(false);
-  const dirRef = useRef<"next" | "prev">("next");
-  const pendingRef = useRef<number | null>(null);
-
-  const startFlip = useCallback(
-    (index: number, dir: "next" | "prev") => {
-      if (busy.current || index === active) return;
-      busy.current = true;
-      dirRef.current = dir;
-      pendingRef.current = index;
-      setAnimate(true);
-      // Rotate the current content away first.
-      setRotation(dir === "next" ? -90 : 90);
-    },
-    [active],
-  );
-
-  // Driven by the real CSS transition (not a guessed setTimeout), so the two
-  // halves of the flip always stay perfectly in sync with what's on screen.
-  const handleFlipTransitionEnd = useCallback((e: TransitionEvent<HTMLDivElement>) => {
-    if (e.propertyName !== "transform") return;
-
-    if (pendingRef.current !== null) {
-      // First half finished (content is edge-on / invisible): swap the
-      // content and jump instantly to the opposite edge, no transition.
-      const idx = pendingRef.current;
-      pendingRef.current = null;
-      setActive(idx);
-      setAnimate(false);
-      setRotation(dirRef.current === "next" ? 90 : -90);
-
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setAnimate(true);
-          setRotation(0);
-        });
-      });
-    } else {
-      // Second half finished: flip is complete.
-      busy.current = false;
-    }
-  }, []);
-
-  const next = useCallback(() => {
-    startFlip((active + 1) % features.length, "next");
-  }, [active, startFlip]);
-
-  const prevFn = useCallback(() => {
-    startFlip((active - 1 + features.length) % features.length, "prev");
-  }, [active, startFlip]);
-
-  const goTo = useCallback(
-    (index: number) => {
-      if (index === active) return;
-      const goingNext = index > active || (active === features.length - 1 && index === 0);
-      startFlip(index, goingNext ? "next" : "prev");
-    },
-    [active, startFlip],
-  );
-
-  const flipStyle: CSSProperties = {
-    transform: `rotateY(${rotation}deg)`,
-    opacity: rotation === 0 ? 1 : 0,
-    transition: animate
-      ? `transform ${FLIP_MS}ms ${FLIP_EASING}, opacity ${FLIP_MS}ms ease-out`
-      : "none",
-  };
-
-  const textFlipStyle: CSSProperties = isMobile
-    ? { opacity: 1, transition: "none" }
-    : flipStyle;
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 1024);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
-
-  useEffect(() => {
-    timerRef.current = setInterval(next, 5000);
-    return () => clearInterval(timerRef.current!);
-  }, [next]);
-
-  const pauseAuto = () => clearInterval(timerRef.current!);
-  const resumeAuto = () => {
-    clearInterval(timerRef.current!);
-    timerRef.current = setInterval(next, 5000);
-  };
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -231,48 +97,8 @@ export default function FeaturesSection() {
     return () => obs.disconnect();
   }, []);
 
-  const feat = features[active];
-
-  const dots = (
-    <div className="flex gap-2">
-      {features.map((f, i) => (
-        <button
-          key={i}
-          onClick={() => goTo(i)}
-          className={`h-2 rounded-full transition-all duration-300 ${
-            i === active ? "w-8 bg-[#025794]" : "w-2 bg-[#001A2D]/15 hover:bg-[#001A2D]/30"
-          }`}
-          aria-label={`Go to ${f.title}`}
-        />
-      ))}
-    </div>
-  );
-
-  const arrows = (
-    <div className="flex gap-3">
-      <button
-        onClick={prevFn}
-        className="w-10 h-10 md:w-11 md:h-11 rounded-full border-2 border-[#025794]/25 text-[#025794] flex items-center justify-center hover:bg-[#025794] hover:text-white hover:border-[#025794] hover:scale-110 transition-all duration-300"
-        aria-label="Previous feature"
-      >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="15 18 9 12 15 6" />
-        </svg>
-      </button>
-      <button
-        onClick={next}
-        className="w-10 h-10 md:w-11 md:h-11 rounded-full border-2 border-[#025794]/25 text-[#025794] flex items-center justify-center hover:bg-[#025794] hover:text-white hover:border-[#025794] hover:scale-110 hover:shadow-lg transition-all duration-300"
-        aria-label="Next feature"
-      >
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
-      </button>
-    </div>
-  );
-
   return (
-    <section ref={sectionRef} id="features" className="relative w-full py-24 md:py-28 bg-white overflow-hidden">
+    <section ref={sectionRef} id="features" className="relative w-full py-24 md:py-28 bg-[#FAF9F5]">
       <div className="container-wide">
         {/* Header */}
         <div
@@ -280,73 +106,49 @@ export default function FeaturesSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
           }`}
         >
-          <p className="eyebrow text-[#025794] mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#025794]" />
+          <p className="eyebrow text-[#2F6FED] mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#2F6FED]" />
             What We Offer
           </p>
-          <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#001A2D] leading-tight mb-4"
-            style={{ fontFamily: "var(--font-caudex)" }}
-          >
+          <h2 className="headline-bold text-3xl md:text-4xl lg:text-5xl text-[#14181F] leading-tight mb-4">
             Every Threat, One Shield
           </h2>
-          <p className="text-base text-[#001A2D]/60 leading-relaxed">
+          <p className="text-base text-[#14181F]/60 leading-relaxed">
             Comprehensive protection that adapts to your family&apos;s needs — from
             real-time risk detection to healthy screen habits.
           </p>
         </div>
 
-        {/* 3D Carousel */}
-        <div
-          className={`transition-all duration-1000 delay-200 ease-out ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-          style={{ perspective: "1200px" }}
-        >
-          {/* Mobile: screenshot → nav → copy | Desktop: screenshot + copy side by side */}
-          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-14 items-start">
-            {/* Screenshot column */}
-            <div className="flex flex-col w-full">
-              <div
-                className="relative h-[360px] md:h-[480px] w-full"
-                style={{ transformStyle: "preserve-3d" }}
-                onMouseEnter={pauseAuto}
-                onMouseLeave={resumeAuto}
-              >
-                <div
-                  className="absolute inset-0"
-                  style={flipStyle}
-                  onTransitionEnd={handleFlipTransitionEnd}
-                >
-                  <Image src={feat.image} alt={feat.title} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-contain" loading="lazy" />
-                </div>
-              </div>
-
-              {/* Nav — mobile only, right below screenshot */}
-              <div className="flex items-center justify-between mt-6 lg:hidden">
-                {dots}
-                {arrows}
-              </div>
-            </div>
-
-            {/* Copy column — fixed min-height */}
+        {/* Service card grid — one card per feature, all visible at once */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feat, i) => (
             <div
-              className="flex flex-col justify-start min-h-[280px] md:min-h-[360px] w-full"
-              style={{ transformStyle: "preserve-3d" }}
-              onMouseEnter={pauseAuto}
-              onMouseLeave={resumeAuto}
+              key={feat.title}
+              className={`card-light flex flex-col overflow-hidden transition-all duration-1000 ease-out ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+              style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <div style={textFlipStyle}>
-                <FeatureContent feat={feat} />
+              <div className="p-7 pb-0">
+                <div className="w-12 h-12 rounded-2xl bg-[#2F6FED]/10 border border-[#2F6FED]/20 flex items-center justify-center mb-5">
+                  <Icon name={feat.icon} className="w-6 h-6 text-[#2F6FED]" />
+                </div>
+                <h3 className="headline-bold text-lg text-[#14181F] mb-2">{feat.title}</h3>
+                <p className="text-sm text-[#14181F]/60 leading-relaxed mb-5">
+                  {feat.description}
+                </p>
+                {feat.stat && (
+                  <div className="flex items-baseline gap-2 mb-5">
+                    <span className="headline-bold text-2xl text-[#2F6FED]">{feat.stat.value}</span>
+                    <span className="text-xs text-[#14181F]/50">{feat.stat.label}</span>
+                  </div>
+                )}
+              </div>
+              <div className="relative h-56 mt-auto bg-[#EFEBE2]">
+                <Image src={feat.image} alt={feat.title} fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-contain object-bottom" loading="lazy" />
               </div>
             </div>
-          </div>
-
-          {/* Nav — desktop only, below both columns */}
-            <div className="hidden lg:flex items-center justify-between mt-10 transition-all duration-700 delay-500 ease-out">
-              {dots}
-              {arrows}
-            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -40,7 +40,7 @@ const icons: Record<string, ReactNode> = {
 function Icon({ name }: { name: string }) {
   return (
     <svg
-      className="w-6 h-6 text-[#025794]"
+      className="w-6 h-6 text-[#2F6FED] group-hover:text-white transition-colors duration-300"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -126,24 +126,23 @@ export default function ValuesSection() {
   }, [isVisible]);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-28 bg-[#E4EDF4]">
+    <section ref={sectionRef} className="py-24 md:py-28 bg-[#0a1c2e]">
       <div className="container-wide">
         <div className="max-w-2xl mb-16 md:mb-20">
           <p
-            className={`eyebrow text-[#025794] mb-4 transition-all duration-1000 ease-out ${
+            className={`eyebrow text-[#38BDF8] mb-4 transition-all duration-1000 ease-out ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6"
             }`}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#025794]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
             What Drives Us
           </p>
           <h2
-            className={`text-3xl md:text-4xl lg:text-5xl text-[#001A2D] transition-all duration-1000 ease-out ${
+            className={`headline-bold text-3xl md:text-4xl lg:text-5xl text-white transition-all duration-1000 ease-out ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-10"
             }`}
-            style={{ fontFamily: "var(--font-caudex)" }}
           >
             Our values
           </h2>
@@ -154,23 +153,23 @@ export default function ValuesSection() {
           {values.map((value, index) => (
             <div
               key={index}
-              className={`card-soft group cursor-default p-8 transition-all duration-1000 ease-out hover:shadow-lg ${
+              className={`card-light group relative cursor-default p-8 transition-all duration-1000 ease-out hover:shadow-xl ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}
               style={{ transitionDelay: `${200 + index * 150}ms` }}
             >
-              <div className="w-12 h-12 rounded-full bg-[#E4EDF4] flex items-center justify-center mb-5 group-hover:bg-[#025794]/10 transition-colors duration-300">
+              <span className="headline-bold absolute top-6 right-7 text-sm text-[#14181F]/15">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div className="w-12 h-12 rounded-full bg-[#2F6FED]/10 border border-[#2F6FED]/25 flex items-center justify-center mb-5 group-hover:bg-[#2F6FED] transition-colors duration-300">
                 <Icon name={value.icon} />
               </div>
-              <h3
-                className="text-xl md:text-2xl text-[#001A2D] font-semibold mb-3"
-                style={{ fontFamily: "var(--font-caudex)" }}
-              >
+              <h3 className="headline-bold text-xl md:text-2xl text-[#14181F] mb-3">
                 {value.title}
               </h3>
-              <p className="text-sm md:text-base text-[#001A2D]/65 leading-relaxed">
+              <p className="text-sm md:text-base text-[#14181F]/65 leading-relaxed">
                 {value.description}
               </p>
             </div>

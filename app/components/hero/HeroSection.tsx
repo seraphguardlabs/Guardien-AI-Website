@@ -35,48 +35,19 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden">
-      {/* Background Video */}
-      <div className="absolute inset-0 z-0">
-        {/* Desktop / landscape */}
-        <video
-          ref={desktopRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="hidden md:block absolute inset-0 w-full h-full object-cover"
-          src={useLite ? "/hero-16-9-lite.mp4" : "/hero-16-9.mp4"}
-        />
-        {/* Mobile / portrait */}
-        <video
-          ref={mobileRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="md:hidden absolute inset-0 w-full h-full object-cover"
-          src={useLite ? "/hero-9-16-lite.mp4" : "/hero-9-16.mp4"}
-        />
-        {/* Dark overlay — desktop heavy, mobile/tablet light */}
-        <div
-          className="lg:hidden absolute inset-0"
-          style={{ backgroundColor: "rgba(0, 29, 50, 0.35)" }}
-        />
-        <div
-          className="hidden lg:block absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(102deg, #001a2d 9.8%, rgba(159, 191, 214, 0.10) 58.96%)",
-          }}
-        />
-      </div>
+    <section className="relative w-full bg-[#060f1a] overflow-hidden">
+      {/* Ambient glow — replaces the full-bleed video overlay with a split layout. */}
+      <div className="blob -top-40 -left-24 w-[32rem] h-[32rem] opacity-30" style={{ backgroundColor: "#2F6FED" }} />
+      <div className="blob top-1/3 -right-32 w-[28rem] h-[28rem] opacity-20" style={{ backgroundColor: "#38BDF8" }} />
 
-      {/* Header Navigation */}
       <Header />
 
-      {/* Hero Content */}
-      <HeroContent />
+      <HeroContent
+        desktopVideoRef={desktopRef}
+        desktopVideoSrc={useLite ? "/hero-16-9-lite.mp4" : "/hero-16-9.mp4"}
+        mobileVideoRef={mobileRef}
+        mobileVideoSrc={useLite ? "/hero-9-16-lite.mp4" : "/hero-9-16.mp4"}
+      />
     </section>
   );
 }

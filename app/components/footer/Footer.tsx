@@ -3,7 +3,7 @@ export default function Footer() {
     <footer
       className="w-full pt-14 pb-6 relative"
       style={{
-        background: "#025794",
+        background: "#2F6FED",
       }}
     >
       <div className="container-wide">
@@ -12,21 +12,21 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h3
-              className="text-white text-sm mb-3"
+              className="text-[#04101f] text-sm font-semibold mb-3"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               Contact us
             </h3>
             <div className="space-y-1">
               <p
-                className="text-white/70 text-xs"
+                className="text-[#04101f]/70 text-xs"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
                 +91 8954578
               </p>
               <a
                 href="mailto:Contact@GuardienAI.Com"
-                className="text-white/70 text-xs hover:text-white transition-colors block"
+                className="text-[#04101f]/70 text-xs hover:text-[#04101f] transition-colors block"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
                 Contact@GuardienAI.Com
@@ -37,20 +37,20 @@ export default function Footer() {
           {/* North America */}
           <div>
             <h3
-              className="text-white text-sm mb-3"
+              className="text-[#04101f] text-sm font-semibold mb-3"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               North America:
             </h3>
             <div className="space-y-1">
               <p
-                className="text-white/70 text-xs"
+                className="text-[#04101f]/70 text-xs"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
                 United States
               </p>
               <p
-                className="text-white/70 text-xs"
+                className="text-[#04101f]/70 text-xs"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
                 Canada
@@ -61,20 +61,20 @@ export default function Footer() {
           {/* Europe */}
           <div>
             <h3
-              className="text-white text-sm mb-3"
+              className="text-[#04101f] text-sm font-semibold mb-3"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               Europe:
             </h3>
             <div className="space-y-1">
               <p
-                className="text-white/70 text-xs"
+                className="text-[#04101f]/70 text-xs"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
                 United Kingdom
               </p>
               <p
-                className="text-white/70 text-xs"
+                className="text-[#04101f]/70 text-xs"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
                 Portugal
@@ -85,14 +85,14 @@ export default function Footer() {
           {/* Latin America */}
           <div>
             <h3
-              className="text-white text-sm mb-3"
+              className="text-[#04101f] text-sm font-semibold mb-3"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               Latin America:
             </h3>
             <div className="space-y-1">
               <p
-                className="text-white/70 text-xs"
+                className="text-[#04101f]/70 text-xs"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
                 Argentina
@@ -103,14 +103,14 @@ export default function Footer() {
           {/* Asia */}
           <div>
             <h3
-              className="text-white text-sm mb-3"
+              className="text-[#04101f] text-sm font-semibold mb-3"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               Asia:
             </h3>
             <div className="space-y-1">
               <p
-                className="text-white/70 text-xs"
+                className="text-[#04101f]/70 text-xs"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
                 India
@@ -120,9 +120,9 @@ export default function Footer() {
         </div>
 
         {/* Legal Links */}
-        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="pt-6 border-t border-[#04101f]/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p
-            className="text-white/70 text-xs"
+            className="text-[#04101f]/70 text-xs"
             style={{ fontFamily: "var(--font-poppins)" }}
           >
             Copyright © 2026 GuardienAI® All Rights Reserved.
@@ -130,14 +130,14 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <a
               href="/terms"
-              className="text-white/70 text-xs hover:text-white transition-colors"
+              className="text-[#04101f]/70 text-xs hover:text-[#04101f] transition-colors"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               Terms &amp; Conditions
             </a>
             <a
               href="/delete-account"
-              className="text-white/70 text-xs hover:text-white transition-colors"
+              className="text-[#04101f]/70 text-xs hover:text-[#04101f] transition-colors"
               style={{ fontFamily: "var(--font-poppins)" }}
             >
               Delete Account

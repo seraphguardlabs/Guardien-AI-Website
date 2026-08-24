@@ -35,7 +35,7 @@ export default function MissionSection() {
     <section
       ref={sectionRef}
       id="mission"
-      className="relative w-full py-24 md:py-28 bg-[#E4EDF4] overflow-hidden"
+      className="relative w-full py-24 md:py-28 bg-[#F2EFE8] overflow-hidden"
     >
       <div className="container-wide">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
@@ -58,7 +58,7 @@ export default function MissionSection() {
             </div>
 
             {/* Supporting image */}
-            <div className="absolute bottom-0 right-0 w-[48%] h-[46%] rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+            <div className="absolute bottom-0 right-0 w-[48%] h-[46%] rounded-2xl overflow-hidden border-4 border-[#F2EFE8] shadow-xl">
               <Image
                 src="/Image.webp"
                 alt="Child safely using a device"
@@ -70,14 +70,11 @@ export default function MissionSection() {
             </div>
 
             {/* Floating stat card */}
-            <div className="absolute bottom-6 left-0 w-[58%] card-soft p-5 z-10">
-              <div
-                className="text-3xl font-bold text-[#025794] mb-1"
-                style={{ fontFamily: "var(--font-caudex)" }}
-              >
+            <div className="absolute bottom-6 left-0 w-[58%] card-light p-5 z-10">
+              <div className="headline-bold text-3xl text-[#2F6FED] mb-1">
                 300+
               </div>
-              <p className="text-xs text-[#001A2D]/60 leading-snug">
+              <p className="text-xs text-[#14181F]/60 leading-snug">
                 Millions of Children Abused Online
               </p>
             </div>
@@ -89,26 +86,23 @@ export default function MissionSection() {
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-16"
             }`}
           >
-            <p className="eyebrow text-[#025794] mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#025794]" />
+            <p className="eyebrow text-[#2F6FED] mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2F6FED]" />
               Why We Exist
             </p>
 
-            <h2
-              className="text-3xl md:text-4xl lg:text-5xl text-[#001A2D] leading-tight mb-6"
-              style={{ fontFamily: "var(--font-caudex)" }}
-            >
-              <span className="block font-bold">Protecting and Empowering</span>
-              <span className="block font-light">digital childhood through ethical,</span>
-              <span className="block font-bold">Privacy-First AI</span>
+            <h2 className="headline-bold text-3xl md:text-4xl lg:text-5xl text-[#14181F] leading-[1.1] mb-6">
+              <span className="block">Protecting and Empowering</span>
+              <span className="block font-normal text-[#14181F]/60">digital childhood through ethical,</span>
+              <span className="block">Privacy-First AI</span>
             </h2>
 
-            <p className="text-base text-[#001A2D]/70 leading-relaxed max-w-md mb-8">
+            <p className="text-base text-[#14181F]/70 leading-relaxed max-w-md mb-8">
               A trusted partner for parents - protecting children while
               respecting privacy.
             </p>
 
-            <Link href="#contact" className="btn-pill btn-pill-primary">
+            <Link href="#contact" className="chip-pop px-7 py-3.5">
               Request Early Access
             </Link>
           </div>

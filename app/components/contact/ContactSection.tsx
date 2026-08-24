@@ -83,44 +83,35 @@ export default function ContactSection() {
   };
 
   const inputClass =
-    "w-full pl-12 pr-5 py-3.5 rounded-xl text-[#001a2d] placeholder-[#001a2d]/35 bg-[#E4EDF4]/60 border border-[#001a2d]/10 focus:outline-none focus:ring-2 focus:ring-[#025794]/50 focus:border-transparent focus:bg-white transition-all text-sm";
+    "w-full pl-12 pr-5 py-3.5 rounded-xl text-white placeholder-white/35 bg-white/5 border border-white/10 focus:outline-none focus:ring-2 focus:ring-[#38BDF8]/50 focus:border-transparent focus:bg-white/8 transition-all text-sm";
 
   const iconWrapClass =
-    "pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#001a2d]/40";
+    "pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-white/40";
 
   return (
     <section
       ref={sectionRef}
       id="contact"
-      className="relative w-full overflow-hidden bg-[#E4EDF4] py-16 md:py-24 px-4 md:px-8 lg:px-12"
+      className="relative w-full overflow-hidden bg-[#060f1a] py-16 md:py-24 px-4 md:px-8 lg:px-12"
     >
       <div
-        className={`relative mx-auto max-w-6xl rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-[0_40px_90px_-40px_rgba(0,26,45,0.45)] transition-all duration-1000 ease-out ${
+        className={`relative mx-auto max-w-6xl rounded-[2rem] md:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_40px_90px_-40px_rgba(0,0,0,0.7)] transition-all duration-1000 ease-out ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
         <div className="grid grid-cols-1 lg:grid-cols-5">
           {/* Left — dark info panel */}
           <div className="relative lg:col-span-2 bg-[#001a2d] flex flex-col justify-center px-8 py-16 md:px-12 lg:px-10 overflow-hidden">
-            {/* decorative glow */}
-            <div
-              className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full opacity-30 blur-3xl"
-              style={{ backgroundColor: "#9fbfd6" }}
-            />
-            <div
-              className="pointer-events-none absolute -bottom-32 -left-16 w-64 h-64 rounded-full opacity-20 blur-3xl"
-              style={{ backgroundColor: "#025794" }}
-            />
+            {/* decorative blobs */}
+            <div className="blob -top-24 -right-24 w-72 h-72 opacity-40" style={{ backgroundColor: "#2F6FED" }} />
+            <div className="blob -bottom-32 -left-16 w-64 h-64 opacity-25" style={{ backgroundColor: "#38BDF8" }} />
 
             <div className="relative">
-              <p className="eyebrow text-[#9FBFD6] mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#9FBFD6]" />
+              <p className="eyebrow text-[#38BDF8] mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
                 Get In Touch
               </p>
-              <h2
-                className="text-3xl md:text-4xl lg:text-[2.75rem] text-white mb-5 leading-tight"
-                style={{ fontFamily: "var(--font-caudex)" }}
-              >
+              <h2 className="headline-bold text-3xl md:text-4xl lg:text-[2.75rem] text-white mb-5 leading-tight">
                 Let&apos;s Start a
                 <br />
                 Conversation
@@ -137,7 +128,7 @@ export default function ContactSection() {
                       className="w-4.5 h-4.5"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke="#9fbfd6"
+                      stroke="#38BDF8"
                       strokeWidth={1.75}
                     >
                       <path
@@ -158,7 +149,7 @@ export default function ContactSection() {
                       className="w-4.5 h-4.5"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke="#9fbfd6"
+                      stroke="#38BDF8"
                       strokeWidth={1.75}
                     >
                       <path
@@ -179,16 +170,16 @@ export default function ContactSection() {
 
               <div className="flex items-center gap-3 pt-6 border-t border-white/10 text-white/60 text-xs">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#9fbfd6] opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#9fbfd6]" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#38BDF8] opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#38BDF8]" />
                 </span>
                 We&apos;ll get back to you shortly
               </div>
             </div>
           </div>
 
-          {/* Right — white form panel */}
-          <div className="lg:col-span-3 bg-white flex items-center justify-center px-8 py-16 md:px-12 lg:px-16">
+          {/* Right — dark glass form panel */}
+          <div className="lg:col-span-3 bg-[#0a1c2e] flex items-center justify-center px-8 py-16 md:px-12 lg:px-16">
             <form onSubmit={handleSubmit} className="w-full max-w-md space-y-4">
               <div className="relative">
                 <span className={iconWrapClass}>
@@ -259,7 +250,7 @@ export default function ContactSection() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className={`btn-pill btn-pill-primary w-full ${
+                  className={`chip-pop w-full py-3.5 ${
                     status === "loading" ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >

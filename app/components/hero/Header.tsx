@@ -36,15 +36,15 @@ export default function Header({
     return () => window.removeEventListener("scroll", onScroll);
   }, [forceLight]);
 
-  const linkColor = isScrolled ? "text-[#001A2D]/80" : "text-white/90";
-  const linkHover = isScrolled ? "hover:text-[#001A2D]" : "hover:text-white";
-  const underline = isScrolled ? "bg-[#001A2D]" : "bg-white";
+  const linkColor = "text-white/90";
+  const linkHover = "hover:text-[#38BDF8]";
+  const underline = "bg-[#38BDF8]";
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-[100] py-3 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-md shadow-[0_2px_24px_rgba(0,26,45,0.08)]"
+          ? "bg-[#050d17]/85 backdrop-blur-md border-b border-white/10 shadow-[0_2px_24px_rgba(0,0,0,0.35)]"
           : "bg-transparent"
       }`}
     >
@@ -56,19 +56,11 @@ export default function Header({
             alt=""
             className="h-8 w-8 sm:h-9 sm:w-9 flex-shrink-0"
           />
-          {isScrolled ? (
-            <img
-              src="/guardien-ai-word-dark.svg"
-              alt="Guardien AI"
-              className="w-24 sm:w-[130px] h-auto max-h-10"
-            />
-          ) : (
-            <img
-              src="/guardien-ai-word-light.svg"
-              alt="Guardien AI"
-              className="w-24 sm:w-[130px] h-auto max-h-10"
-            />
-          )}
+          <img
+            src="/guardien-ai-word-light.svg"
+            alt="Guardien AI"
+            className="w-24 sm:w-[130px] h-auto max-h-10"
+          />
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -100,16 +92,14 @@ export default function Header({
               className={`absolute bottom-0 left-0 w-0 h-0.5 ${underline} group-hover:w-full transition-all duration-300`}
             ></span>
           </Link>
-          <Link href="/#contact" className="btn-pill btn-pill-primary">
+          <Link href="/#contact" className="chip-pop">
             Contact Us
           </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className={`md:hidden z-[110] relative p-2 transition-colors duration-300 ${
-            isScrolled ? "text-[#001A2D]" : "text-white"
-          }`}
+          className="md:hidden z-[110] relative p-2 transition-colors duration-300 text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -161,7 +151,7 @@ export default function Header({
 
         {/* Right Side Panel */}
         <div
-          className={`absolute top-0 right-0 h-dvh w-[80%] max-w-sm bg-white shadow-2xl transition-transform duration-300 ease-in-out flex flex-col pt-24 px-8 pb-10 overflow-y-auto border-l border-[#001A2D]/10 ${
+          className={`absolute top-0 right-0 h-dvh w-[80%] max-w-sm bg-[#050d17] shadow-2xl transition-transform duration-300 ease-in-out flex flex-col pt-24 px-8 pb-10 overflow-y-auto border-l border-white/10 ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -169,28 +159,28 @@ export default function Header({
             <Link
               href="/#mission"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-[#001A2D]/80 hover:text-[#001A2D] transition-colors border-b border-[#001A2D]/10 pb-4"
+              className="text-white/80 hover:text-[#38BDF8] transition-colors border-b border-white/10 pb-4"
             >
               Mission
             </Link>
             <Link
               href="/#pricing"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-[#001A2D]/80 hover:text-[#001A2D] transition-colors border-b border-[#001A2D]/10 pb-4"
+              className="text-white/80 hover:text-[#38BDF8] transition-colors border-b border-white/10 pb-4"
             >
               Pricing
             </Link>
             <Link
               href="/research"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-[#001A2D]/80 hover:text-[#001A2D] transition-colors border-b border-[#001A2D]/10 pb-4"
+              className="text-white/80 hover:text-[#38BDF8] transition-colors border-b border-white/10 pb-4"
             >
               Research
             </Link>
             <Link
               href="/#contact"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="btn-pill btn-pill-primary mt-4 text-center justify-center"
+              className="chip-pop mt-4 text-center justify-center"
             >
               Contact Us
             </Link>

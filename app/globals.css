@@ -1,19 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #001a2d;
+  --background: #060f1a;
+  --foreground: #eaf2fa;
 
-  /* Brand palette — three-color system (deep navy / primary blue / soft sky).
-     Deep navy is kept as an accent/bookend (hero overlay, contact + footer bands). */
-  --color-ink: #001a2d;
+  /* Brand palette — dark tech system built on the same navy/blue brand hues,
+     now used as the dominant surface instead of white, with a bright cyan
+     accent for glow/highlight moments. */
+  --color-ink: #eaf2fa;
   --color-teal-deep: #001a2d;
-  --color-teal: #025794;
-  --color-surface: #ffffff;
-  --color-surface-alt: #e4edf4;
-  --color-cta: #025794;
-  --color-cta-hover: #013f6d;
-  --color-accent: #9fbfd6;
+  --color-teal: #0ea5e9;
+  --color-surface: #0a1c2e;
+  --color-surface-alt: #0d2338;
+  --color-cta: #0ea5e9;
+  --color-cta-hover: #38bdf8;
+  --color-accent: #38bdf8;
+  --color-glow: #22d3ee;
+  /* Vivid "pop" blue — stands in for the reference design's lime-green on
+     solid chips/buttons/blobs. Paired with dark ink text, same as the ref. */
+  --color-pop: #2f6fed;
+  --color-pop-ink: #04101f;
+  /* Warm-neutral light surface — the reference's cream sections, not stark white. */
+  --color-light: #f2efe8;
+  --color-light-alt: #e9e5db;
+  --color-light-ink: #14181f;
 }
 
 @theme inline {
@@ -49,6 +59,19 @@ body {
 
 .animate-fadeIn {
   animation: fadeIn 0.7s ease-out forwards;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 22s linear infinite;
 }
 
 /* ── 3D flip keyframes ── (handled via inline styles) */
@@ -108,44 +131,114 @@ body {
 }
 
 .btn-pill-primary {
-  background-color: var(--color-cta);
+  background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
   color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.25) inset, 0 8px 24px -8px rgba(14, 165, 233, 0.55);
 }
 
 .btn-pill-primary:hover {
-  background-color: var(--color-cta-hover);
+  background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(2, 87, 148, 0.28);
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4) inset, 0 10px 30px -6px rgba(34, 211, 238, 0.6);
 }
 
 .btn-pill-secondary {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.03);
   color: var(--color-ink);
-  border: 1.5px solid rgba(0, 26, 45, 0.2);
+  border: 1.5px solid rgba(234, 242, 250, 0.18);
 }
 
 .btn-pill-secondary:hover {
-  border-color: var(--color-ink);
-  background-color: rgba(0, 26, 45, 0.04);
+  border-color: rgba(56, 189, 248, 0.5);
+  background-color: rgba(56, 189, 248, 0.08);
+  color: #ffffff;
 }
 
 .btn-pill-ghost {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
   color: #ffffff;
-  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(4px);
 }
 
 .btn-pill-ghost:hover {
-  background-color: rgba(255, 255, 255, 0.18);
+  background-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(56, 189, 248, 0.6);
 }
 
-/* Soft rounded card — the base of the modular card system. */
+/* Frosted glass card on the dark surface — the base of the modular card system. */
 .card-soft {
-  background-color: #ffffff;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
   border-radius: 1.75rem;
-  border: 1px solid rgba(0, 26, 45, 0.08);
-  box-shadow: 0 20px 60px -30px rgba(0, 26, 45, 0.25);
+  border: 1px solid rgba(234, 242, 250, 0.1);
+  box-shadow: 0 20px 60px -30px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+}
+
+/* Subtle ambient dot-grid texture for dark sections. */
+.bg-grid-glow {
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(14, 165, 233, 0.12), transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(34, 211, 238, 0.08), transparent 45%),
+    radial-gradient(rgba(234, 242, 250, 0.06) 1px, transparent 1px);
+  background-size: auto, auto, 26px 26px;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Bold agency-style system (reference redesign) — solid near-black cards, */
+/* vivid-blue chips, and blurred blob accents instead of glassmorphism.   */
+/* ---------------------------------------------------------------------- */
+
+/* Solid near-black block card — no blur, sharp bold contrast. */
+.card-block {
+  background: #0a1420;
+  border-radius: 2rem;
+  border: 1px solid rgba(234, 242, 250, 0.07);
+}
+
+/* Solid vivid-blue pill chip with dark ink text — the "pop" accent. */
+.chip-pop {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: var(--color-pop);
+  color: var(--color-pop-ink);
+  border-radius: 999px;
+  padding: 0.7rem 1.6rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: var(--font-poppins);
+  white-space: nowrap;
+  transition: all 0.3s ease-out;
+}
+
+.chip-pop:hover {
+  background: #4c86ff;
+  transform: translateY(-1px);
+}
+
+/* Blurred decorative blob — absolute-position + size it per use. */
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+/* Big, tight, bold agency-style headline — swaps the serif for a bold sans. */
+.headline-bold {
+  font-family: var(--font-poppins);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* White card on a light/cream section — the reference's "team card" surface. */
+.card-light {
+  background: #ffffff;
+  border-radius: 1.75rem;
+  border: 1px solid rgba(20, 24, 31, 0.06);
+  box-shadow: 0 20px 45px -28px rgba(20, 24, 31, 0.35);
 }
 
 /* Hide scrollbar on horizontal scroll containers */

@@ -5,11 +5,11 @@ import { useEffect, useRef, useState } from "react";
 const Check = ({ dark }: { dark?: boolean }) => (
   <div
     className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
-      dark ? "bg-white" : "bg-[#025794]"
+      dark ? "bg-white" : "bg-[#38BDF8]"
     }`}
   >
     <svg
-      className={`w-3 h-3 ${dark ? "text-[#001a2d]" : "text-white"}`}
+      className={`w-3 h-3 ${dark ? "text-[#001a2d]" : "text-[#001a2d]"}`}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -55,24 +55,23 @@ export default function PricingSection() {
     <section
       ref={sectionRef}
       id="pricing"
-      className="relative w-full py-24 md:py-28 bg-white overflow-hidden"
+      className="relative w-full py-24 md:py-28 bg-[#F2EFE8] overflow-hidden"
     >
       <div className="container-wide">
         {/* Heading */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <p
-            className={`eyebrow text-[#025794] mb-4 justify-center transition-all duration-1000 ease-out ${
+            className={`eyebrow text-[#2F6FED] mb-4 justify-center transition-all duration-1000 ease-out ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-6"
             }`}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#025794]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#2F6FED]" />
             Pricing
           </p>
           <h2
-            className={`text-3xl md:text-4xl lg:text-5xl text-[#001A2D] leading-tight transition-all duration-1000 ease-out ${
+            className={`headline-bold text-3xl md:text-4xl lg:text-5xl text-[#14181F] leading-tight transition-all duration-1000 ease-out ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
-            style={{ fontFamily: "var(--font-caudex)" }}
           >
             Choose The Right Plan
             <br />
@@ -82,9 +81,9 @@ export default function PricingSection() {
 
         {/* Pricing Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto items-stretch">
-          {/* Monthly Plan Card — light outlined treatment */}
+          {/* Monthly Plan Card — light treatment */}
           <div
-            className={`card-soft p-8 flex flex-col transition-all duration-1000 ease-out hover:shadow-xl ${
+            className={`card-light p-8 flex flex-col transition-all duration-1000 ease-out hover:shadow-xl ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-10"
@@ -92,23 +91,23 @@ export default function PricingSection() {
             style={{ transitionDelay: isVisible ? "150ms" : "0ms" }}
           >
             <div className="mb-6">
-              <p className="text-sm font-medium text-[#025794] mb-4">
+              <p className="text-sm font-medium text-[#2F6FED] mb-4">
                 Monthly Plan
               </p>
               <div className="flex items-baseline">
                 <span
-                  className="text-5xl font-bold text-[#001A2D]"
+                  className="text-5xl font-bold text-[#14181F]"
                   style={{ fontFamily: "var(--font-poppins)" }}
                 >
                   ₹250
                 </span>
-                <span className="text-base text-[#001A2D]/50 ml-2">
+                <span className="text-base text-[#14181F]/50 ml-2">
                   Per month
                 </span>
               </div>
             </div>
 
-            <p className="text-sm text-[#001A2D]/60 mb-6 pb-6 border-b border-[#001A2D]/10">
+            <p className="text-sm text-[#14181F]/60 mb-6 pb-6 border-b border-[#14181F]/10">
               Joy horrible moreover man feelings own shy. Request norland
               neither mistake for yet.
             </p>
@@ -117,28 +116,28 @@ export default function PricingSection() {
             <div className="space-y-4 mb-8 flex-grow">
               <div className="flex items-center gap-3">
                 <Check />
-                <span className="text-[#001A2D] text-sm">Customer Support</span>
+                <span className="text-[#14181F] text-sm">Customer Support</span>
               </div>
               <div className="flex items-center gap-3">
                 <Check />
-                <span className="text-[#001A2D] text-sm">Free User Account</span>
+                <span className="text-[#14181F] text-sm">Free User Account</span>
               </div>
               <div className="flex items-center gap-3">
                 <Check />
-                <span className="text-[#001A2D] text-sm">Monthly Reports</span>
+                <span className="text-[#14181F] text-sm">Monthly Reports</span>
               </div>
               <div className="flex items-center gap-3">
                 <Check />
-                <span className="text-[#001A2D] text-sm">Multiple Devices</span>
+                <span className="text-[#14181F] text-sm">Multiple Devices</span>
               </div>
             </div>
 
-            <button className="btn-pill btn-pill-secondary w-full">
+            <button className="btn-pill w-full border-2 border-[#14181F]/15 text-[#14181F] hover:border-[#2F6FED]/50 hover:bg-[#2F6FED]/5 transition-colors">
               Join for free
             </button>
           </div>
 
-          {/* Yearly Plan Card — highlighted dark treatment */}
+          {/* Yearly Plan Card — highlighted pop-blue treatment */}
           <div
             className={`relative p-8 flex flex-col transition-all duration-1000 ease-out hover:shadow-2xl ${
               isVisible
@@ -146,13 +145,13 @@ export default function PricingSection() {
                 : "opacity-0 translate-y-10"
             }`}
             style={{
-              borderRadius: "1.75rem",
-              background: "linear-gradient(180deg, #025794 0%, #001a2d 100%)",
-              boxShadow: "0 24px 60px -20px rgba(0, 26, 45, 0.45)",
+              borderRadius: "2rem",
+              background: "linear-gradient(160deg, #2F6FED 0%, #001a2d 100%)",
+              boxShadow: "0 0 0 1px rgba(47,111,237,0.45), 0 24px 60px -20px rgba(47, 111, 237, 0.5)",
               transitionDelay: isVisible ? "300ms" : "0ms",
             }}
           >
-            <span className="absolute -top-3 left-8 px-3 py-1 rounded-full bg-[#025794] text-white text-xs font-semibold tracking-wide">
+            <span className="chip-pop absolute -top-4 left-8 px-4 py-1.5 text-xs">
               Best Value
             </span>
 
@@ -193,7 +192,7 @@ export default function PricingSection() {
               </div>
             </div>
 
-            <button className="btn-pill btn-pill-primary w-full">
+            <button className="chip-pop w-full py-3.5">
               Join for free
             </button>
           </div>
