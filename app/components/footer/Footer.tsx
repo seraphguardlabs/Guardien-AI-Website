@@ -131,6 +131,13 @@ export default function Footer() {
               Terms &amp; Conditions
             </a>
             <a
+              href="/privacy-policy"
+              className="text-white/60 text-xs hover:text-white transition-colors"
+              style={{ fontFamily: "var(--font-poppins)" }}
+            >
+              Privacy Policy
+            </a>
+            <a
               href="/delete-account"
               className="text-white/60 text-xs hover:text-white transition-colors"
               style={{ fontFamily: "var(--font-poppins)" }}
