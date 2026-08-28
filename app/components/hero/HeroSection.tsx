@@ -35,19 +35,38 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full bg-[#060f1a] overflow-hidden">
-      {/* Ambient glow — replaces the full-bleed video overlay with a split layout. */}
-      <div className="blob -top-40 -left-24 w-[32rem] h-[32rem] opacity-30" style={{ backgroundColor: "#2F6FED" }} />
-      <div className="blob top-1/3 -right-32 w-[28rem] h-[28rem] opacity-20" style={{ backgroundColor: "#38BDF8" }} />
+    <section className="relative w-full min-h-screen bg-[#060f1a] overflow-hidden flex flex-col">
+      {/* Full-bleed video background — 16:9 for laptop, 9:16 for mobile */}
+      <video
+        ref={desktopRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="hidden md:block absolute inset-0 w-full h-full object-cover"
+        src={useLite ? "/hero-16-9-lite.mp4" : "/hero-16-9.mp4"}
+      />
+      <video
+        ref={mobileRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="md:hidden absolute inset-0 w-full h-full object-cover"
+        src={useLite ? "/hero-9-16-lite.mp4" : "/hero-9-16.mp4"}
+      />
+      {/* Dark overlay for text legibility */}
+      <div
+        className="absolute inset-0 z-[1]"
+        style={{ background: "linear-gradient(180deg, rgba(6,15,26,0.55) 0%, rgba(6,15,26,0.35) 45%, rgba(6,15,26,0.75) 100%)" }}
+      />
+
+      {/* Ambient glow */}
+      <div className="blob top-1/3 -right-32 w-[28rem] h-[28rem] opacity-20 z-[2]" style={{ backgroundColor: "#38BDF8" }} />
 
       <Header />
 
-      <HeroContent
-        desktopVideoRef={desktopRef}
-        desktopVideoSrc={useLite ? "/hero-16-9-lite.mp4" : "/hero-16-9.mp4"}
-        mobileVideoRef={mobileRef}
-        mobileVideoSrc={useLite ? "/hero-9-16-lite.mp4" : "/hero-9-16.mp4"}
-      />
+      <HeroContent />
     </section>
   );
 }

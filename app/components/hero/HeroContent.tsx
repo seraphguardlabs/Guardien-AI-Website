@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, type RefObject } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 const heroStats = [
@@ -41,17 +41,7 @@ const statBadgeVariants: Variants = {
   },
 };
 
-export default function HeroContent({
-  desktopVideoRef,
-  desktopVideoSrc,
-  mobileVideoRef,
-  mobileVideoSrc,
-}: {
-  desktopVideoRef: RefObject<HTMLVideoElement | null>;
-  desktopVideoSrc: string;
-  mobileVideoRef: RefObject<HTMLVideoElement | null>;
-  mobileVideoSrc: string;
-}) {
+export default function HeroContent() {
   const [statIndex, setStatIndex] = useState(0);
 
   useEffect(() => {
@@ -64,8 +54,8 @@ export default function HeroContent({
   const currentStat = heroStats[statIndex];
 
   return (
-    <div className="relative z-10 w-full pt-28 pb-16 md:pt-36 md:pb-24">
-      <div className="container-wide grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div className="relative z-10 w-full flex-1 flex items-center pt-28 pb-16 md:pt-36 md:pb-24">
+      <div className="container-wide grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
         {/* Left — copy */}
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           <h1
@@ -104,37 +94,9 @@ export default function HeroContent({
           </div>
         </div>
 
-        {/* Right — framed video (placed below copy on mobile, constrained to fit screen height) */}
-        <div className="relative w-full max-w-md lg:max-w-none mx-auto opacity-0 animate-fadeIn" style={{ animationDelay: "500ms" }}>
-          <div className="relative w-full aspect-[16/10] sm:aspect-[16/12] lg:aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl">
-            {/* Desktop / landscape source */}
-            <video
-              ref={desktopVideoRef}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="hidden md:block absolute inset-0 w-full h-full object-cover"
-              src={desktopVideoSrc}
-            />
-            {/* Mobile / portrait source */}
-            <video
-              ref={mobileVideoRef}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="md:hidden absolute inset-0 w-full h-full object-cover"
-              src={mobileVideoSrc}
-            />
-            <div
-              className="absolute inset-0"
-              style={{ background: "linear-gradient(180deg, rgba(6,15,26,0) 55%, rgba(6,15,26,0.55) 100%)" }}
-            />
-          </div>
-
-          {/* Floating trust badge with animated text only */}
-          <div className="card-light absolute -bottom-5 left-1/2 -translate-x-1/2 sm:left-6 sm:translate-x-0 h-[72px] sm:h-[76px] w-[265px] sm:w-[310px] px-4 sm:px-5 py-3 flex items-center shadow-xl border border-[#14181F]/10 bg-white/95 backdrop-blur-md rounded-2xl overflow-hidden">
+        {/* Floating trust badge — bottom-right on laptop, smaller & centered on mobile */}
+        <div className="relative w-full max-w-[220px] mx-auto lg:absolute lg:bottom-8 lg:right-8 lg:w-[310px] lg:max-w-none opacity-0 animate-fadeIn" style={{ animationDelay: "500ms" }}>
+          <div className="card-light relative h-[64px] lg:h-[76px] w-full lg:w-[310px] px-3 lg:px-5 py-3 flex items-center shadow-xl border border-white/10 bg-white/95 backdrop-blur-md rounded-2xl overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.div
                 key={statIndex}
