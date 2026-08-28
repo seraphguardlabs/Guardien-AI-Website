@@ -61,6 +61,12 @@ export default function HeroSection() {
         style={{ background: "linear-gradient(180deg, rgba(6,15,26,0.55) 0%, rgba(6,15,26,0.35) 45%, rgba(6,15,26,0.75) 100%)" }}
       />
 
+      {/* Top-only dark-to-transparent fade for the header area */}
+      <div
+        className="absolute top-0 left-0 right-0 h-40 z-[2] pointer-events-none"
+        style={{ background: "linear-gradient(180deg, rgba(6,15,26,0.85) 0%, rgba(6,15,26,0) 100%)" }}
+      />
+
       {/* Ambient glow */}
       <div className="blob top-1/3 -right-32 w-[28rem] h-[28rem] opacity-20 z-[2]" style={{ backgroundColor: "#38BDF8" }} />
 

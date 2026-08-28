@@ -22,7 +22,7 @@ export default function MarqueeSection() {
         {[0, 1].map((copy) => (
           <div key={copy} className="flex items-center flex-shrink-0">
             {track.map((label, i) => (
-              <div key={`${copy}-${i}`} className="flex items-center gap-3 px-6 text-[#04101f]">
+              <div key={`${copy}-${i}`} className="flex items-center gap-3 px-6 text-white">
                 <Dot />
                 <span className="headline-bold text-sm md:text-base uppercase tracking-wide whitespace-nowrap">
                   {label}

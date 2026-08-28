@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 const CheckIcon = ({ active = true, dark = false }: { active?: boolean; dark?: boolean }) => (
@@ -91,7 +91,29 @@ const plans = [
 export default function PricingSection() {
   const [isVisible, setIsVisible] = useState(false);
   const [isAnnual, setIsAnnual] = useState(true);
+  const [pillStyle, setPillStyle] = useState<{ width: number; offset: number }>({
+    width: 0,
+    offset: 0,
+  });
   const sectionRef = useRef<HTMLDivElement>(null);
+  const monthlyRef = useRef<HTMLButtonElement>(null);
+  const annualRef = useRef<HTMLButtonElement>(null);
+  const switchRef = useRef<HTMLDivElement>(null);
+
+  const updatePill = () => {
+    const active = isAnnual ? annualRef.current : monthlyRef.current;
+    const container = switchRef.current;
+    if (!active || !container) return;
+    const containerLeft = container.getBoundingClientRect().left;
+    const btn = active.getBoundingClientRect();
+    setPillStyle({ width: btn.width, offset: btn.left - containerLeft - 6 });
+  };
+
+  useLayoutEffect(() => {
+    updatePill();
+    window.addEventListener("resize", updatePill);
+    return () => window.removeEventListener("resize", updatePill);
+  }, [isAnnual]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -135,30 +157,43 @@ export default function PricingSection() {
           </p>
 
           {/* Billing Cycle Switch (Monthly vs Annual) */}
-          <div className="mt-8 inline-flex items-center gap-3 p-1.5 rounded-full bg-[#14181F]/06 border border-[#14181F]/10">
+          <div
+            ref={switchRef}
+            className="mt-8 relative inline-flex items-center p-1.5 rounded-full bg-[#14181F]/06 border border-[#14181F]/10"
+          >
+            {/* Sliding pill indicator */}
+            <span
+              className="absolute top-1.5 bottom-1.5 left-1.5 rounded-full shadow-md transition-all duration-300 ease-out pointer-events-none"
+              style={{
+                width: pillStyle.width,
+                transform: `translateX(${pillStyle.offset}px)`,
+                opacity: pillStyle.width ? 1 : 0,
+                backgroundColor: isAnnual ? "#2F6FED" : "#ffffff",
+              }}
+            />
             <button
+              ref={monthlyRef}
               onClick={() => setIsAnnual(false)}
-              className={`px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer ${
-                !isAnnual
-                  ? "bg-white text-[#14181F] shadow-sm"
-                  : "text-[#14181F]/60 hover:text-[#14181F]"
+              className={`relative z-10 px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-colors duration-300 cursor-pointer ${
+                !isAnnual ? "text-[#14181F]" : "text-[#14181F]/60 hover:text-[#14181F]"
               }`}
             >
               Monthly Billing
             </button>
 
             <button
+              ref={annualRef}
               onClick={() => setIsAnnual(true)}
-              className={`flex items-center gap-2 px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer ${
-                isAnnual
-                  ? "bg-[#2F6FED] text-white shadow-md"
-                  : "text-[#14181F]/60 hover:text-[#14181F]"
+              className={`relative z-10 flex items-center gap-2 px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-colors duration-300 cursor-pointer ${
+                isAnnual ? "text-white" : "text-[#14181F]/60 hover:text-[#14181F]"
               }`}
             >
               <span>Annual Billing</span>
-              <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${
-                isAnnual ? "bg-white/20 text-white" : "bg-[#2F6FED]/15 text-[#2F6FED]"
-              }`}>
+              <span
+                className={`px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-colors duration-300 ${
+                  isAnnual ? "bg-white/20 text-white" : "bg-[#2F6FED]/15 text-[#2F6FED]"
+                }`}
+              >
                 Save 20%
               </span>
             </button>

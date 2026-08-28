@@ -70,7 +70,7 @@ export default function HeroContent() {
           </h1>
 
           <p
-            className="text-base md:text-lg text-white/70 mb-8 max-w-xl font-light opacity-0 animate-fadeIn"
+            className="text-base md:text-lg text-white/90 mb-8 max-w-xl font-light opacity-0 animate-fadeIn"
             style={{ animationDelay: "450ms" }}
           >
             A trusted partner for parents - protecting{" "}
