@@ -131,11 +131,11 @@ export default function AcceleratorSection() {
           >
             <div className="absolute inset-0 rounded-full overflow-hidden border-8 border-white shadow-xl">
               <Image
-                src="/pexels-canva-studio-3153201.webp"
+                src="/family-phone.webp"
                 alt="Family using technology together"
                 fill
                 sizes="(max-width: 1024px) 60vw, 24rem"
-                className="object-cover"
+                className="object-cover grayscale"
                 loading="lazy"
               />
             </div>

@@ -48,11 +48,11 @@ export default function MissionSection() {
             {/* Dominant image */}
             <div className="absolute top-0 left-0 w-[72%] h-[78%] rounded-[2rem] overflow-hidden">
               <Image
-                src="/pexels-canva-studio-3153201.webp"
+                src="/family-phone.webp"
                 alt="Family using technology together"
                 fill
                 sizes="(max-width: 1024px) 70vw, 35vw"
-                className="object-cover"
+                className="object-cover grayscale"
                 loading="lazy"
               />
             </div>
@@ -60,11 +60,11 @@ export default function MissionSection() {
             {/* Supporting image */}
             <div className="absolute bottom-0 right-0 w-[48%] h-[46%] rounded-2xl overflow-hidden border-4 border-[#F2EFE8] shadow-xl">
               <Image
-                src="/Image.webp"
+                src="/girls on phone.webp"
                 alt="Child safely using a device"
                 fill
                 sizes="(max-width: 1024px) 40vw, 20vw"
-                className="object-cover"
+                className="object-cover grayscale"
                 loading="lazy"
               />
             </div>
