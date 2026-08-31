@@ -169,45 +169,68 @@ export default function DifferentSection() {
               {features[currentSlide].description}
             </p>
 
-            {/* Navigation Controls */}
-            <div className="flex items-center justify-between">
-              {/* Dots */}
-              <div className="flex gap-2">
-                {features.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`h-2 rounded-full transition-all duration-300 hover:scale-125 ${
-                      currentSlide === index
-                        ? "w-8 bg-[#025794]"
-                        : "w-2 bg-[#001A2D]/20 hover:bg-[#001A2D]/40"
-                    }`}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
-              </div>
+                {/* Navigation Controls */}
+                <div className="flex items-center justify-between">
+                  {/* Dots */}
+                  <div className="flex gap-2">
+                    {features.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => goToSlide(index)}
+                        className={`h-2 rounded-full transition-all duration-300 hover:scale-125 ${
+                          currentSlide === index
+                            ? "w-8 bg-[#025794]"
+                            : "w-2 bg-[#001A2D]/20 hover:bg-[#001A2D]/40"
+                        }`}
+                        aria-label={`Go to slide ${index + 1}`}
+                      />
+                    ))}
+                  </div>
 
-              {/* Next Arrow */}
-              <button
-                onClick={nextSlide}
-                className="w-10 h-10 rounded-full border-2 border-[#025794] text-[#025794] flex items-center justify-center hover:bg-[#025794] hover:text-white hover:scale-110 hover:shadow-lg transition-all duration-300"
-                aria-label="Next slide"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="transform group-hover:translate-x-0.5 transition-transform"
-                >
-                  <polyline points="9 18 15 12 9 6" />
-                </svg>
-              </button>
-            </div>
+                  {/* Prev & Next Arrows */}
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() =>
+                        setCurrentSlide(
+                          (prev) => (prev - 1 + features.length) % features.length
+                        )
+                      }
+                      className="w-10 h-10 rounded-full border-2 border-[#025794] text-[#025794] flex items-center justify-center hover:bg-[#025794] hover:text-white hover:scale-110 hover:shadow-lg transition-all duration-300"
+                      aria-label="Previous slide"
+                    >
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="15 18 9 12 15 6" />
+                      </svg>
+                    </button>
+                    <button
+                      onClick={nextSlide}
+                      className="w-10 h-10 rounded-full border-2 border-[#025794] text-[#025794] flex items-center justify-center hover:bg-[#025794] hover:text-white hover:scale-110 hover:shadow-lg transition-all duration-300"
+                      aria-label="Next slide"
+                    >
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
           </div>
         </div>
       </div>

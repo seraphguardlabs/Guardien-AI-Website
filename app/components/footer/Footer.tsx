@@ -17,14 +17,14 @@ export default function Footer() {
                 className="text-white/70 text-xs"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
-                +91 8954578
+                +91 73063 72698
               </p>
               <a
-                href="mailto:Contact@GuardienAI.Com"
+                href="mailto:tech@seraphguardlabs.com"
                 className="text-white/70 text-xs hover:text-white transition-colors block"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
-                Contact@GuardienAI.Com
+                tech@seraphguardlabs.com
               </a>
             </div>
           </div>

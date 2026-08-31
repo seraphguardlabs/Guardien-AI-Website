@@ -118,7 +118,7 @@ export default function ContactSection() {
               {/* Direct Contact Cards */}
               <div className="space-y-4 mb-10">
                 <a
-                  href="tel:+918954578"
+                  href="tel:+917306372698"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-white/08 border border-white/12 hover:bg-white/15 transition-all duration-300 group"
                 >
                   <span className="w-11 h-11 rounded-xl bg-[#2F6FED] flex items-center justify-center flex-shrink-0 text-white shadow-md group-hover:scale-105 transition-transform">
@@ -128,12 +128,12 @@ export default function ContactSection() {
                   </span>
                   <div>
                     <span className="block text-xs text-white/60 font-medium">Direct Phone Line</span>
-                    <span className="text-sm font-semibold text-white">+91 8954578</span>
+                    <span className="text-sm font-semibold text-white">+91 73063 72698</span>
                   </div>
                 </a>
 
                 <a
-                  href="mailto:Contact@GuardienAI.Com"
+                  href="mailto:tech@seraphguardlabs.com"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-white/08 border border-white/12 hover:bg-white/15 transition-all duration-300 group"
                 >
                   <span className="w-11 h-11 rounded-xl bg-[#2F6FED] flex items-center justify-center flex-shrink-0 text-white shadow-md group-hover:scale-105 transition-transform">
@@ -143,7 +143,7 @@ export default function ContactSection() {
                   </span>
                   <div className="overflow-hidden">
                     <span className="block text-xs text-white/60 font-medium">Email Support</span>
-                    <span className="text-sm font-semibold text-white truncate block">Contact@GuardienAI.Com</span>
+                    <span className="text-sm font-semibold text-white truncate block">tech@seraphguardlabs.com</span>
                   </div>
                 </a>
               </div>

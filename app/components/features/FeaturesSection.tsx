@@ -251,19 +251,42 @@ export default function FeaturesSection() {
                       ))}
                     </div>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2">
                       <button
                         onClick={() => paginate(-1)}
-                        className="text-xs font-medium text-[#14181F]/60 hover:text-[#2F6FED] transition-colors cursor-pointer"
+                        className="w-8 h-8 rounded-full border border-[#14181F]/20 flex items-center justify-center text-[#14181F]/60 hover:text-[#2F6FED] hover:border-[#2F6FED] transition-colors cursor-pointer"
+                        aria-label="Previous feature"
                       >
-                        &larr; Prev
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <polyline points="15 18 9 12 15 6" />
+                        </svg>
                       </button>
-                      <span className="text-[#14181F]/20">|</span>
                       <button
                         onClick={() => paginate(1)}
-                        className="text-xs font-medium text-[#14181F]/60 hover:text-[#2F6FED] transition-colors cursor-pointer"
+                        className="w-8 h-8 rounded-full border border-[#14181F]/20 flex items-center justify-center text-[#14181F]/60 hover:text-[#2F6FED] hover:border-[#2F6FED] transition-colors cursor-pointer"
+                        aria-label="Next feature"
                       >
-                        Next &rarr;
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <polyline points="9 18 15 12 9 6" />
+                        </svg>
                       </button>
                     </div>
                   </div>
