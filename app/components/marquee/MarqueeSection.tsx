@@ -1,4 +1,4 @@
-// Labels reused verbatim from FeaturesSection's feature titles — no new copy.
+// Labels reused verbatim from FeaturesSection feature titles. No new copy.
 const items = [
   "AI-Powered Risk Detection",
   "Screen Time & Usage Control",

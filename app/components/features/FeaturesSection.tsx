@@ -54,7 +54,7 @@ const features = [
     tag: "Healthy Habits",
     title: "Screen Time & Usage Control",
     description:
-      "Set healthy limits by app, schedule internet downtime, and track daily usage — all from a single parent dashboard.",
+      "Set healthy limits by app, schedule internet downtime and track daily usage in one parent dashboard.",
   },
   {
     icon: "pin",
@@ -68,9 +68,9 @@ const features = [
     icon: "eye",
     image: "/app_screens/parent dashboard.png",
     tag: "Total Control",
-    title: "Parent Dashboard — Full Visibility",
+    title: "Parent Dashboard with Full Visibility",
     description:
-      "See everything at a glance: app usage, location history, risk alerts, and device health — all in one real-time command centre.",
+      "See everything at a glance. App usage, location history, risk alerts and device health in one real time command centre.",
   },
   {
     icon: "trophy",
@@ -149,7 +149,7 @@ export default function FeaturesSection() {
               Every Threat, One Shield
             </h2>
             <p className="text-base text-[#14181F]/60 leading-relaxed">
-              Comprehensive protection that adapts to your family&apos;s needs — from
+              Comprehensive protection that adapts to your family&apos;s needs, from
               real-time risk detection to healthy screen habits.
             </p>
           </div>

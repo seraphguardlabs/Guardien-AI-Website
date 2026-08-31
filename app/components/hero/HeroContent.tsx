@@ -56,7 +56,7 @@ export default function HeroContent() {
   return (
     <div className="relative z-10 w-full flex-1 flex items-center pt-28 pb-16 md:pt-36 md:pb-24">
       <div className="container-wide grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
-        {/* Left — copy */}
+        {/* Left copy */}
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           <h1
             className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold uppercase text-white leading-[1.05] tracking-tight mb-6 opacity-0 animate-fadeIn"
@@ -73,7 +73,7 @@ export default function HeroContent() {
             className="text-base md:text-lg text-white/90 mb-8 max-w-xl font-light opacity-0 animate-fadeIn"
             style={{ animationDelay: "450ms" }}
           >
-            A trusted partner for parents - protecting{" "}
+            A trusted partner for parents protecting{" "}
             <br className="hidden md:block" />
             children while respecting privacy.
           </p>
@@ -94,7 +94,7 @@ export default function HeroContent() {
           </div>
         </div>
 
-        {/* Floating trust badge — bottom-right on laptop, smaller & centered on mobile */}
+        {/* Floating trust badge, bottom-right on laptop, smaller and centered on mobile */}
         <div className="relative w-full max-w-[220px] mx-auto lg:absolute lg:bottom-8 lg:right-8 lg:w-[310px] lg:max-w-none opacity-0 animate-fadeIn" style={{ animationDelay: "500ms" }}>
           <div className="card-light relative h-[64px] lg:h-[76px] w-full lg:w-[310px] px-3 lg:px-5 py-3 flex items-center shadow-xl border border-white/10 bg-white/95 backdrop-blur-md rounded-2xl overflow-hidden">
             <AnimatePresence mode="wait">

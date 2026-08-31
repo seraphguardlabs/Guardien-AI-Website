@@ -15,9 +15,9 @@ const caudex = Caudex({
 });
 
 export const metadata: Metadata = {
-  title: "GuardienAI - Making The Digital World Safer For Children",
+  title: "GuardienAI: Making The Digital World Safer For Children",
   description:
-    "A trusted partner for parents - protecting children while respecting privacy",
+    "A trusted partner for parents protecting children while respecting privacy",
 };
 
 export default function RootLayout({

@@ -79,7 +79,7 @@ export default function AcceleratorSection() {
     <section ref={sectionRef} className="w-full py-24 md:py-28 bg-[#F2EFE8] overflow-hidden">
       <div className="container-wide">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left — heading, pills, stat grid */}
+          {/* Left: heading, pills, stat grid */}
           <div
             className={`transition-all duration-1000 ease-out ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-16"
@@ -123,7 +123,7 @@ export default function AcceleratorSection() {
             </div>
           </div>
 
-          {/* Right — circular photo with ribbon badge, referenced-design motif */}
+          {/* Right: circular photo with ribbon badge, referenced design motif */}
           <div
             className={`relative mx-auto w-full max-w-sm aspect-square transition-all duration-1000 delay-200 ease-out ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-16"

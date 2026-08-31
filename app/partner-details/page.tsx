@@ -13,8 +13,19 @@ export default function PartnerDetailsPage() {
         <nav className="flex items-center justify-between max-w-7xl mx-auto px-6">
           {/* Logo */}
           <div className="flex flex-col">
-            <Link href="/">
-              <img src="/Vector.svg" alt="GuardienAI" width={180} height={40} />
+            <Link href="/" className="flex items-center gap-2">
+              <img
+                src="/guardien-ai-icon-512.png"
+                alt=""
+                className="h-8 w-8 flex-shrink-0"
+              />
+              <img
+                src="/guardien-ai-word-light-solid.svg"
+                alt="Guardien AI"
+                width={130}
+                height={24}
+                className="h-6 w-auto"
+              />
             </Link>
           </div>
 
@@ -84,7 +95,7 @@ export default function PartnerDetailsPage() {
               color: "#001a2d",
             }}
           >
-            A trusted partner for parents - protecting children while
+            A trusted partner for parents protecting children while
           </p>
 
           {/* Body Content - Multiple Paragraphs */}

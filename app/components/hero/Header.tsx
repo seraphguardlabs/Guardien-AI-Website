@@ -66,7 +66,7 @@ export default function Header({
             className="h-8 w-8 sm:h-9 sm:w-9 flex-shrink-0"
           />
           <img
-            src="/guardien-ai-word-light.svg"
+            src="/guardien-ai-word-light-solid.svg"
             alt="Guardien AI"
             className="w-24 sm:w-[130px] h-auto max-h-10"
           />

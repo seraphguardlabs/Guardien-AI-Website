@@ -97,7 +97,7 @@ export default function ContactSection() {
         }`}
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[580px]">
-          {/* Left Column — Deep Navy / Vibrant Blue Brand Info Panel */}
+          {/* Left Column: Deep Navy / Vibrant Blue Brand Info Panel */}
           <div className="lg:col-span-5 bg-gradient-to-br from-[#0a1c2e] via-[#0d2338] to-[#2F6FED] p-8 sm:p-12 lg:p-14 text-white flex flex-col justify-between relative overflow-hidden rounded-t-[2.5rem] lg:rounded-tr-none lg:rounded-l-[2.5rem] border-t border-l border-b border-white/15">
             {/* Decorative background glow */}
             <div className="absolute -top-16 -right-16 w-60 h-60 bg-[#2F6FED]/30 rounded-full blur-3xl pointer-events-none" />
@@ -159,7 +159,7 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Right Column — Clean Light Form Panel with Dark Blue Stroke */}
+          {/* Right Column: Clean Light Form Panel with Dark Blue Stroke */}
           <div className="lg:col-span-7 bg-white p-8 sm:p-12 lg:p-14 flex flex-col justify-center rounded-b-[2.5rem] lg:rounded-bl-none lg:rounded-r-[2.5rem] border-t-2 border-r-2 border-b-2 border-[#0a1c2e] lg:border-l-0">
             <div className="mb-8">
               <h3 className="headline-bold text-2xl sm:text-3xl text-[#14181F] mb-2">

@@ -36,7 +36,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative w-full min-h-screen bg-[#060f1a] overflow-hidden flex flex-col">
-      {/* Full-bleed video background — 16:9 for laptop, 9:16 for mobile */}
+      {/* Full-bleed video background: 16:9 for laptop, 9:16 for mobile */}
       <video
         ref={desktopRef}
         autoPlay

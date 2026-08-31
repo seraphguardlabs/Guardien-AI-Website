@@ -98,7 +98,7 @@ export default function MissionSection() {
             </h2>
 
             <p className="text-base text-[#14181F]/70 leading-relaxed max-w-md mb-8">
-              A trusted partner for parents - protecting children while
+              A trusted partner for parents protecting children while
               respecting privacy.
             </p>
 
