@@ -30,8 +30,8 @@ const plans = [
     id: "starter",
     name: "Starter Shield",
     tagline: "Essential AI protection for a single child device.",
-    monthlyPrice: 149,
-    annualPrice: 1390, // ~₹115/mo
+    monthlyPrice: 99,
+    annualPrice: 999,
     popular: false,
     badge: null,
     buttonText: "Start 14-Day Free Trial",
@@ -49,32 +49,12 @@ const plans = [
   {
     id: "family",
     name: "Family Shield",
-    tagline: "Complete 360° protection for the entire household.",
-    monthlyPrice: 250,
-    annualPrice: 2490, // ~₹207/mo
+    tagline: "Maximum security with priority monitoring & VIP support.",
+    monthlyPrice: 199,
+    annualPrice: 1999,
     popular: true,
     badge: "Most Popular",
     buttonText: "Protect Your Family",
-    buttonHref: "#contact",
-    features: [
-      { text: "Up to 5 Family Devices", included: true },
-      { text: "Real-Time AI Threat Alerts", included: true },
-      { text: "Cyberbullying & Predator Detection", included: true },
-      { text: "Screen Time & App Downtime Control", included: true },
-      { text: "Live GPS Location & Safe Geofences", included: true },
-      { text: "Gamified Task & Chore Rewards", included: true },
-      { text: "Parent Dashboard Command Centre", included: true },
-    ],
-  },
-  {
-    id: "ultimate",
-    name: "Ultimate Protection",
-    tagline: "Maximum security with priority monitoring & VIP support.",
-    monthlyPrice: 499,
-    annualPrice: 4790, // ~₹399/mo
-    popular: false,
-    badge: "Maximum Security",
-    buttonText: "Get Ultimate Defense",
     buttonHref: "#contact",
     features: [
       { text: "Unlimited Family Devices", included: true },
@@ -201,7 +181,7 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
           {plans.map((plan, index) => {
             const price = isAnnual ? plan.annualPrice : plan.monthlyPrice;
             const monthlyEquivalent = isAnnual ? Math.round(plan.annualPrice / 12) : plan.monthlyPrice;

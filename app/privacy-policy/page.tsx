@@ -800,10 +800,10 @@ export default function PrivacyPolicyPage() {
               <p>
                 <strong>Email:</strong>{" "}
                 <a
-                  href="mailto:tech@seraphguardlabs.com"
+                  href="mailto:support@guardienai.com"
                   className="text-[#025794] hover:underline"
                 >
-                  tech@seraphguardlabs.com
+                  support@guardienai.com
                 </a>
               </p>
             </div>

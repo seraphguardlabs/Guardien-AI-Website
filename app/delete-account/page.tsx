@@ -107,10 +107,10 @@ export default function DeleteAccountPage() {
                 If you have any questions about deleting your account or your
                 personal data, please contact us at{" "}
                 <a
-                  href="mailto:tech@seraphguardlabs.com"
+                  href="mailto:support@guardienai.com"
                   className="text-[#025794] hover:underline"
                 >
-                  tech@seraphguardlabs.com
+                  support@guardienai.com
                 </a>
                 .
               </p>

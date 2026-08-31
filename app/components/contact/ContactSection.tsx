@@ -133,7 +133,7 @@ export default function ContactSection() {
                 </a>
 
                 <a
-                  href="mailto:tech@seraphguardlabs.com"
+                  href="mailto:support@guardienai.com"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-white/08 border border-white/12 hover:bg-white/15 transition-all duration-300 group"
                 >
                   <span className="w-11 h-11 rounded-xl bg-[#2F6FED] flex items-center justify-center flex-shrink-0 text-white shadow-md group-hover:scale-105 transition-transform">
@@ -143,7 +143,7 @@ export default function ContactSection() {
                   </span>
                   <div className="overflow-hidden">
                     <span className="block text-xs text-white/60 font-medium">Email Support</span>
-                    <span className="text-sm font-semibold text-white truncate block">tech@seraphguardlabs.com</span>
+                    <span className="text-sm font-semibold text-white truncate block">support@guardienai.com</span>
                   </div>
                 </a>
               </div>

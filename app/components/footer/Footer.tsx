@@ -20,11 +20,11 @@ export default function Footer() {
                 +91 73063 72698
               </p>
               <a
-                href="mailto:tech@seraphguardlabs.com"
+                href="mailto:support@guardienai.com"
                 className="text-white/70 text-xs hover:text-white transition-colors block"
                 style={{ fontFamily: "var(--font-poppins)" }}
               >
-                tech@seraphguardlabs.com
+                support@guardienai.com
               </a>
             </div>
           </div>
