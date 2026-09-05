@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 
 export default function ContactSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -50,24 +49,31 @@ export default function ContactSection() {
 
     setStatus("loading");
     try {
-      await emailjs.send(
-        "service_2g3mh9v",
-        "template_n10v14p",
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-        },
-        "YD2Gz2fqz2GrsaOIj"
-      );
-      setStatus("success");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-      alert("Message sent successfully!");
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        organization: formData.phone,
+        message: formData.message,
+      };
+
+      const res = await fetch("https://dev.seraphguardlabs.com/api/contact-us", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (data.status === "success") {
+        setStatus("success");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+        alert("Message sent successfully!");
+      } else {
+        setStatus("error");
+        alert(data.errors?.join("\n") || data.message || "Failed to send message.");
+      }
     } catch (error) {
-      console.error("EmailJS Error:", error);
+      console.error("Contact API Error:", error);
       setStatus("error");
       alert("Failed to send message. Please try again.");
     } finally {
