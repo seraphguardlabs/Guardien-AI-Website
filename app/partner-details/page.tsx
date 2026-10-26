@@ -15,16 +15,9 @@ export default function PartnerDetailsPage() {
           <div className="flex flex-col">
             <Link href="/" className="flex items-center gap-2">
               <img
-                src="/guardien-ai-icon-512.png"
-                alt=""
-                className="h-8 w-8 flex-shrink-0"
-              />
-              <img
-                src="/guardien-ai-word-light-solid.svg"
+                src="/logo/logo wordmark.png"
                 alt="Guardien AI"
-                width={130}
-                height={24}
-                className="h-6 w-auto"
+                className="h-7 w-auto flex-shrink-0 brightness-0 invert"
               />
             </Link>
           </div>

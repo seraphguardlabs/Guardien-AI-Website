@@ -61,14 +61,9 @@ export default function Header({
           className="flex items-center gap-2 cursor-pointer z-50"
         >
           <img
-            src="/guardien-ai-icon-512.png"
-            alt=""
-            className="h-8 w-8 sm:h-9 sm:w-9 flex-shrink-0"
-          />
-          <img
-            src="/guardien-ai-word-light-solid.svg"
+            src="/logo/logo wordmark.png"
             alt="Guardien AI"
-            className="w-24 sm:w-[130px] h-auto max-h-10"
+            className="h-7 sm:h-8 w-auto flex-shrink-0 brightness-0 invert"
           />
         </Link>
 
