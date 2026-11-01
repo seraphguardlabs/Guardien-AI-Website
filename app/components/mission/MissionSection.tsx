@@ -102,8 +102,8 @@ export default function MissionSection() {
               respecting privacy.
             </p>
 
-            <Link href="#contact" className="chip-pop px-7 py-3.5">
-              Request Early Access
+            <Link href="/join-mission" className="chip-pop px-7 py-3.5">
+              Join Our Mission
             </Link>
           </div>
         </div>

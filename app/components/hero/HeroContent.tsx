@@ -82,8 +82,8 @@ export default function HeroContent() {
             className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:items-start lg:justify-start opacity-0 animate-fadeIn"
             style={{ animationDelay: "600ms" }}
           >
-            <Link href="#contact" className="chip-pop px-7 py-3.5 text-[0.9375rem]">
-              Request Early Access
+            <Link href="/join-mission" className="chip-pop px-7 py-3.5 text-[0.9375rem]">
+              Join Our Mission
             </Link>
 
             <div className="hidden sm:block">

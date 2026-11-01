@@ -49,28 +49,29 @@ export default function ContactSection() {
 
     setStatus("loading");
     try {
-      const payload = {
-        name: formData.name,
-        email: formData.email,
-        organization: formData.phone,
-        message: formData.message,
-      };
+      const web3Data = new FormData();
+      web3Data.append("access_key", "94142d17-70b4-4d93-a905-d0cb4624bf8b");
+      web3Data.append("name", formData.name.trim());
+      web3Data.append("email", formData.email.trim());
+      if (formData.phone) web3Data.append("phone", formData.phone.trim());
+      web3Data.append("subject", `New Contact Inquiry from ${formData.name.trim()}`);
+      web3Data.append("from_name", "Guardien AI - Contact Us");
+      web3Data.append("message", formData.message.trim());
 
-      const res = await fetch("https://dev.seraphguardlabs.com/api/contact-us", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: web3Data,
       });
 
       const data = await res.json();
 
-      if (data.status === "success") {
+      if (data.success) {
         setStatus("success");
         setFormData({ name: "", email: "", phone: "", message: "" });
         alert("Message sent successfully!");
       } else {
         setStatus("error");
-        alert(data.errors?.join("\n") || data.message || "Failed to send message.");
+        alert(data.message || "Failed to send message.");
       }
     } catch (error) {
       console.error("Contact API Error:", error);
