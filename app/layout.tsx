@@ -18,6 +18,17 @@ export const metadata: Metadata = {
   title: "GuardienAI: Making The Digital World Safer For Children",
   description:
     "A trusted partner for parents protecting children while respecting privacy",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({

@@ -51,7 +51,7 @@ export default function Header({
       <nav className="container-wide flex items-center justify-between">
         {/* Logo */}
         <Link
-          href="/"
+          href="/#"
           onClick={(e) => {
             if (window.location.pathname === "/" || window.location.pathname === "") {
               e.preventDefault();
@@ -78,7 +78,7 @@ export default function Header({
               className={`absolute bottom-0 left-0 w-0 h-0.5 ${underline} group-hover:w-full transition-all duration-300`}
             ></span>
           </Link>
-          <Link
+          {/* <Link
             href="/#pricing"
             className={`${linkColor} ${linkHover} text-sm font-medium transition-all duration-300 ease-out relative group`}
           >
@@ -86,7 +86,7 @@ export default function Header({
             <span
               className={`absolute bottom-0 left-0 w-0 h-0.5 ${underline} group-hover:w-full transition-all duration-300`}
             ></span>
-          </Link>
+          </Link> */}
           <Link
             href="/research"
             className={`${linkColor} ${linkHover} text-sm font-medium transition-all duration-300 ease-out relative group`}

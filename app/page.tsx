@@ -17,7 +17,7 @@ export default function Home() {
       <FeaturesSection />
       <AcceleratorSection />
       <ValuesSection />
-      <PricingSection />
+      {/* <PricingSection /> */}
       <ContactSection />
       <Footer />
     </main>
